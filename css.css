@@ -1,0 +1,122 @@
+#cuerpo{
+    font-family: "Montserrat";
+    background-color: #1f1e1e;
+    color: #dddddd;
+
+}
+#nav{
+    background-color: #1f1e1e;
+    border-bottom: 1px solid #4a4a4a;
+    font-family: "Montserrat";
+    margin-top: 5px;
+}
+.fa-arrow-left{
+    color: #acacac;
+    font-size: 17px;
+}
+#titulo{
+    color: #acacac;
+    font-size: 17px;
+    margin-left: 15px;
+    font-family: "Montserrat";
+}
+#formulario{
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#espacio{
+    margin-top: 30px;
+}
+#txt_pedido{
+    color: #acacac;
+    background-color: #1f1e1e;
+    border-color: #1f1e1e;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#bordes{
+    border-top: solid 1px #4a4a4a;
+    border-bottom: solid 1px #4a4a4a;
+}
+#multer{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#selc_ciudades{
+    width: 100%;
+    color: #acacac;
+    background-color: #1f1e1e;
+    border-color: #1f1e1e;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+#btn_submit{
+    width: 100%;
+    border-radius: 20px;
+    color: white;
+    background-color: #3f3e3e;
+    border-color: #3f3e3e;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+#btn_submit:hover{
+    opacity: 0.7;
+}
+#txt_comercio{
+    width: 100%;
+    color: #acacac;
+    background-color: #1f1e1e;
+    border-color: #1f1e1e;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#txt_direccion_entrega{
+    width: 100%;
+    color: #acacac;
+    background-color: #1f1e1e;
+    border-color: #1f1e1e;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#txt_hora_entrega{
+    width: 100%;
+    color: #acacac;
+    background-color: #1f1e1e;
+    border-color: #1f1e1e;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#btn_efectivo{
+    width: 50%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #242424;
+    border-color: #242424;
+}
+#btn_tarjeta{
+    width: 50%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #242424;
+    border-color: #242424;
+}
+.btn-group{
+    width: 100%;
+}
+#recipcion{
+    background-color: #1f1e1e;
+    border-color: #1f1e1e;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+#btn_antes_posible{
+    background-color: #1f1e1e;
+    border-color: #1f1e1e;
+}
+#lbl_secciones{
+    font-size: 14px;
+}
+#intro{
+    font-size: 14px;
+}

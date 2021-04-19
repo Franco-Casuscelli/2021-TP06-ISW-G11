@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
+    <script src="https://kit.fontawesome.com/eb1cd33b61.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    <title>Pedir algo</title>
+</head>
+<header>
+    <div class="container-fluid">
+        <div id="nav">
+            <button type="button" class="btn"><i class="fas fa-arrow-left"></i></button>
+            <label id="titulo"> Pedir algo</label>
+        </div>         
+    </div>
+</header>
+
+<body id="cuerpo">
+    
+    <form id="formulario">
+            <label id="intro"> Recorremos tu ciudad para enviar lo que necesites. Para realizar un pedido, usa "Lo que sea".</label>
+        <div class="form-row">
+          <div class="form-group col-md-6" id="espacio">
+            <label for="txt_pedido" id="lbl_secciones">Tu pedido</label>
+            <div id="bordes">
+                <input type="text" class="form-control" id="txt_pedido" placeholder="¿Qué quieres pedir?" required>
+            </div>
+          </div>
+        </div>
+        
+          <div class="form-group" >
+            <label for="txt_subir_imagen" id="lbl_secciones">Imagen del pedido</label>
+            <div id="bordes">
+                <div id="multer">
+                    --logica para subir imagen--
+                </div>
+            </div>
+          </div>
+      
+        <div class="form-group" id="espacio">
+            <label for="txt_comercio" id="lbl_secciones">Dirección de comercio</label>
+            <div id="bordes">
+                <input type="text" class="form-control" id="txt_comercio" placeholder="Direccion de comercio" required>
+            </div>
+        </div>
+        <div class="form-group" id="espacio">
+            <label for="txt_direccion_entrega" id="lbl_secciones">Dirección de entrega</label>
+            <div id="bordes">
+                <input type="text" class="form-control" id="txt_direccion_entrega" placeholder="Direccion de entrega" required>
+            </div>
+        </div>
+        <div class="form-group" id="espacio">
+            <label for="selc_ciudades" id="lbl_secciones">Ciudad</label>
+            <div id="bordes">
+                <select id="selc_ciudades">
+                    <option value="-1">Seleccione...</option>
+                  </select>
+            </div>
+        </div>
+        <div class="form-group" id="espacio">
+            <label for="" id="lbl_secciones">Método de pago</label>
+            <div >
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-secondary" id="btn_efectivo">Efectivo</button>
+                <button type="button" class="btn btn-secondary" id="btn_tarjeta">Tarjeta</button>
+              </div>
+            </div>
+        </div>
+        <div class="form-group" id="espacio">
+            <label for="txt_hora_entrega" id="lbl_secciones">Cuando recibirlo</label>
+            <div id="bordes">
+                <input type="text" class="form-control" id="recipcion" placeholder="Fecha/Hora de recepción.">
+                <input type="radio" class="btn btn-secondary" id="btn_antes_posible">   Lo antes posible</input> 
+            </div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary" id="btn_submit">Confirmar</button>
+      </form>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+</body>
+<footer>
+
+</footer>
+
+<script src="js.js"></script> 
+</html>
+
+
+<!--
+
+    Interfaz -- Franco C
+
+    • Se debe indicar qué es lo que debe buscar el Cadete con un campo de texto -- required Franco
+
+    • Se puede adjuntar opcionalmente una foto en formato JPG con un tamaño máximo de 5 MB. -- utilizar multer --AGUSTIN
+
+    • Se debe indicar la dirección del comercio en forma textual (calle, número, ciudad y referencia opcional en
+    formato de texto) o seleccionando un punto en un mapa interactivo de Google Maps. -- Franco D
+
+    • Se debe indicar la dirección de entrega (calle, número, ciudad y referencia opcional en formato de texto). -- NAHUEL
+
+    • Se debe poder seleccionar la ciudad de un listado de Ciudades disponibles. LUCAS
+
+    • Se debe seleccionar la forma de pago: Efectivo o Tarjeta VISA, --- JAVI AXEL
+
+    • Si paga en Efectivo debe indicar el monto con el que va a pagar. JAVI
+
+    • Si paga con Tarjeta VISA debe ingresar el número de la tarjeta, nombre y apellido del Titular, fecha de
+    vencimiento (MM/AAAA) y CVC. -- AXEL
+
+    • Debe ingresar cuando quiere recibirlo: “Lo antes posible” o una fecha/hora de recepción. --JOACO
+
+-->
