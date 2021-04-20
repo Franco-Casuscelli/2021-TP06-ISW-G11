@@ -133,7 +133,7 @@
     font-size: 14px;
 }
 #espacio_btn_final{
-    margin-bottom: 70px;
+    margin-bottom: 60px;
 }
 #icons{
     position: relative;
@@ -169,4 +169,13 @@ input[type="color"]:focus,
   border-color: none;
   box-shadow: none;
   outline: none;
+}
+
+footer{
+    margin-top: 10px;
+    color: #acacac;
+    font-style: italic;
+    font-size:12px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
