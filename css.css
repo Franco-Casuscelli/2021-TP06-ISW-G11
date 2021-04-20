@@ -2,6 +2,7 @@
     font-family: "Montserrat";
     background-color: #1f1e1e;
     color: #dddddd;
+   
 
 }
 #nav{
@@ -27,6 +28,7 @@
 }
 #espacio{
     margin-top: 30px;
+    margin-bottom: 10px;
 }
 #txt_pedido{
     color: #acacac;
@@ -40,31 +42,40 @@
     border-bottom: solid 1px #4a4a4a;
 }
 #multer{
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom: 10px;
 }
 #selc_ciudades{
-    width: 100%;
+    width: 90%;
     color: #acacac;
     background-color: #1f1e1e;
     border-color: #1f1e1e;
     margin-top: 15px;
     margin-bottom: 15px;
+    margin-left: 10px;
 }
 #btn_submit{
-    width: 100%;
+    width: 90%;
     border-radius: 20px;
     color: white;
     background-color: #3f3e3e;
     border-color: #3f3e3e;
     font-weight: 600;
     margin-bottom: 10px;
+
+    position: fixed;
+	bottom: 0px;
+	right: 5%;
+    left:5%;
+	transition: all 300ms ease 0ms;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	z-index: 99;
 }
 #btn_submit:hover{
     opacity: 0.7;
 }
 #txt_comercio{
-    width: 100%;
+    width: 90%;
     color: #acacac;
     background-color: #1f1e1e;
     border-color: #1f1e1e;
@@ -72,7 +83,7 @@
     margin-bottom: 10px;
 }
 #txt_direccion_entrega{
-    width: 100%;
+    width: 90%;
     color: #acacac;
     background-color: #1f1e1e;
     border-color: #1f1e1e;
@@ -113,10 +124,49 @@
 #btn_antes_posible{
     background-color: #1f1e1e;
     border-color: #1f1e1e;
+    margin-bottom: 3px;
 }
 #lbl_secciones{
     font-size: 14px;
 }
 #intro{
     font-size: 14px;
+}
+#espacio_btn_final{
+    margin-bottom: 70px;
+}
+#icons{
+    position: relative;
+    top:18px;
+    color: #acacac;
+}
+#icons_pict{
+    font-size:16px;
+    color: #acacac;
+}
+#icons_cuidad{
+    position: relative;
+    top: 15px;
+    font-size:16px;
+    color: #acacac;
+}
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {   
+  border-color: none;
+  box-shadow: none;
+  outline: none;
 }
