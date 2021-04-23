@@ -166,6 +166,22 @@
     color:#DDDDDD;
 }
 
+/*
+.form-select{
+    width: 100%;
+    height: 40px;
+    padding: initial 10px;
+    background-color: #1f1e1e;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #acacac;
+    border-radius: 3px;
+}
+*/
+
+
+
 textarea:focus,
 input[type="text"]:focus,
 input[type="password"]:focus,
