@@ -30,3 +30,22 @@ var select = document.getElementById("select"),
                  this.size=0;
              });
              // para la segunda opcion lo unico que hay q hacer es quitar desde la linea 21 a la 31
+
+             //Deshabitilar y Habilitar input radio button 
+            
+             function deshabilitarInput(){
+             if(document.querySelector('#hora_pedido').value !== ''){
+                 document.querySelector('#btn_antes_posible').disabled = true;
+             }
+             else{
+                document.querySelector('#btn_antes_posible').disabled = false;
+                if(document.querySelector('#btn_antes_posible').checked === true){
+                    document.querySelector('#hora_pedido').disabled = true;
+                    document.querySelector('#hora_pedido').value = '';
+                }
+                else{
+                    document.querySelector('#hora_pedido').disabled = false;
+                    
+                }
+             }
+            }
