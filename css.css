@@ -150,6 +150,22 @@
     font-size:16px;
     color: #acacac;
 }
+
+.container{
+    width:auto;
+    padding: 7px;
+    background-color: #1f1e1e;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #acacac;
+    border-radius: 3px;
+}
+.container option{
+    padding: 2px;
+    color:#DDDDDD;
+}
+
 textarea:focus,
 input[type="text"]:focus,
 input[type="password"]:focus,
