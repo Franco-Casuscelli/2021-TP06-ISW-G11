@@ -49,3 +49,15 @@ var select = document.getElementById("select"),
                 }
              }
             }
+
+            function validarTipoArchivo(){
+                var nombreArchivo = document.getElementById("nombreArchivo").value;
+                var idxDot = nombreArchivo.lastIndexOf(".") + 1;
+                var extFile = nombreArchivo.substr(idxDot, nombreArchivo.length).toLowerCase();
+                if (extFile=="jpg"){
+                    //Lo que hay que hacer
+                }else{
+                    document.getElementById("nombreArchivo").value = "";
+                    alert("Solo se pueden seleccionar imagenes .jpg");
+                }   
+            }
