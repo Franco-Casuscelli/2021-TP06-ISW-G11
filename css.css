@@ -112,6 +112,11 @@
     background-color: #242424;
     border-color: #242424;
 }
+
+#bordes_pagoefectivo i{
+    margin: 10px;
+}
+
 .btn-group{
     width: 100%;
 }
