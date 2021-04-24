@@ -10,6 +10,8 @@
     <script src="https://kit.fontawesome.com/eb1cd33b61.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script src="loquesea.module.js"></script>
     <title>Pedir algo</title>
 </head>
 <header>
@@ -21,9 +23,9 @@
     </div>
 </header>
 
-<body id="cuerpo">
+<body ng-app="LoQueSeaModule" ng-controller="LoQueSeaController" id="cuerpo">
     
-    <form id="formulario">
+    <form name="formLoQueSea" ng-model="formLoQueSea" id="formulario">
             <label id="intro"> Recorremos tu ciudad para enviar lo que necesites. Para realizar un pedido, usa "Lo que sea".</label>
         <div class="form-row">
           <div class="form-group col-md-6" id="espacio">
@@ -94,11 +96,40 @@
         
         <div class="form-group" id="espacio">
             <label for="" id="lbl_secciones">Método de pago</label>
-            <div >
             <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-secondary" id="btn_efectivo">Efectivo</button>
-                <button type="button" class="btn btn-secondary" id="btn_tarjeta">Tarjeta</button>
-              </div>
+                <div id="btn_efectivo" ng-class="{'btn btn-secondary' : 'true', 'border' : metodoPago == 'E'}" ng-model="metodoEfectivo"
+          ng-click="metodoPago='E';pagoElegido='S'">Efectivo
+                </div>
+            <div id="btn_tarjeta" ng-class="{'btn btn-secondary' : 'true', 'border' : metodoPago == 'T'}" ng-model="metodoTarjeta"
+          ng-click="metodoPago='T';pagoElegido='S'">Tarjeta VISA
+            </div>
+            </div>
+
+            <form id="formTC" name="formTC">
+            <div class="formAdicional" ng-if="metodoPago == 'T'">
+            <div id="bordes">
+                <label for="" id="lbl_secciones">Número de tarjeta</label>
+                <input id="num_tarjeta" type="text" class="form-control" ng-model="num_tarjeta" name="num_tarjeta" value="" required pattern="^4[0-9]{12}(?:[0-9]{3})?$" maxlength="16">
+                <h6 style="color:red" ng-show="(metodoPago == 'T') && formLoQueSea.num_tarjeta.$invalid && formLoQueSea.num_tarjeta.$dirty">
+            Incorrecto! Ingresar tarjeta VISA válida sin guiones ni espacios.</h6>
+                <label for="" id="lbl_secciones">Nombre y apellido del titular</label>
+                <input id="n_a_titular" type="text" class="form-control" name="n_a_titular" ng-model="n_a_titular" value="" required pattern="[a-zA-ZàáèéìíòóùúüñÀÁÈÉÌÍÒÓÙÚÜÑ ]{2,48}">
+                <h6 style="color:red" ng-show="(metodoPago == 'T') && formLoQueSea.n_a_titular.$invalid && formLoQueSea.n_a_titular.$dirty">
+            Incorrecto! Ingresar nombre completo como aparece en la tarjeta.</h6>
+                <label for="" class="" id="lbl_secciones">Código de seguridad</label>
+                <input id="cod_seg" type="text" class="form-control" name="cod_seg" ng-model="cod_seg" value="" required pattern="[0-9]\d\d" maxlength="3">
+                <h6 style="color:red" ng-show="(metodoPago == 'T') && formLoQueSea.cod_seg.$invalid && formLoQueSea.cod_seg.$dirty">
+            Incorrecto</h6>
+
+                <label for="" class="" id="lbl_secciones">Fecha de vencimiento</label>
+                <input id="fecha_venc" type="month" class="form-control" ng-model="fecha_venc" name="fecha_venc" value="" required min="2021-04">
+                <h6 style="color:red" ng-show="(metodoPago == 'T') && formLoQueSea.fecha_venc.$invalid && formLoQueSea.fecha_venc.$dirty">
+            Incorrecto! Ingresar fecha válida no vencida.</h6>
+          
+                <div class="form-group" id="credit_card">
+                <img src="visa.jpg" id="visa">
+                </div>
+            </div>
             </div>
         </div>
         <div class="form-group" id="espacio">
