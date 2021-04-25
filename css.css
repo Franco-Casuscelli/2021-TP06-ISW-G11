@@ -206,6 +206,7 @@
     display: none;
     -webkit-appearance: none;
 }
+<<<<<<< HEAD
 
 #select{
     width: 90%;
@@ -221,6 +222,8 @@
     border-color: #1f1e1e;
     border: none !important;
 }
+=======
+>>>>>>> 4b9655f3167f17ebe066ef9956db8d15bdaa1a17
 /*
 .form-select{
     width: 100%;
@@ -297,6 +300,7 @@ footer{
 }
 #credit_card{
     margin-top: 15px;
+<<<<<<< HEAD
 }
 
 #error_txt_pedido{
@@ -314,4 +318,6 @@ footer{
 #error_txt_ciudad, #error_pagoElegido, #error_txt_efectivo{
     color: red;
     font-size: 13px;
+=======
+>>>>>>> 4b9655f3167f17ebe066ef9956db8d15bdaa1a17
 }
