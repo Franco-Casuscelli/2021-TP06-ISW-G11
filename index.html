@@ -28,19 +28,21 @@
     
     <form name="formLoQueSea" ng-model="formLoQueSea" id="formulario">
             <label id="intro"> Recorremos tu ciudad para enviar lo que necesites. Para realizar un pedido, usa "Lo que sea".</label>
-        <div class="form-row">
-          <div class="form-group col-md-6" id="espacio">
+        
+          <div class="form-group" id="espacio">
             <label for="txt_pedido" id="lbl_secciones">Tu pedido</label>
             <div id="bordes">
                 <div class="input-group">
                     <span class="input-group-addon">
                         <i class="far fa-edit" id="icons"></i>
                     </span>
-                    <input type="text" class="form-control" id="txt_pedido" placeholder="¿Qué quieres pedir?" required>
+                    <input type="text" class="form-control" id="txt_pedido" placeholder="¿Qué quieres pedir?">
+                   
                 
                 </div>
+                <label id="error_txt_pedido">Debe ingresar el pedido</label>
             </div>
-          </div>
+          
         </div>
         
           <div class="form-group" >
@@ -65,9 +67,10 @@
                     <span class="input-group-addon">
                         <i class="fas fa-thumbtack" id="icons"></i>
                     </span>
-                    <input type="text" class="form-control" id="txt_comercio" placeholder="Direccion de comercio" required>
+                    <input type="text" class="form-control" id="txt_comercio" placeholder="Direccion de comercio">
 
                 </div>
+                <label id="error_txt_comercio">Debe ingresar el comercio</label>
             </div>
         </div>
         <div class="form-group" id="espacio">
@@ -77,18 +80,20 @@
                     <span class="input-group-addon">
                         <i class="far fa-flag" id="icons"></i>
                     </span>
-                    <input type="text" class="form-control" id="txt_direccion_entrega" placeholder="Direccion de entrega" required>
+                    <input type="text" class="form-control" id="txt_direccion_entrega" placeholder="Direccion de entrega">
                 </div>
+                <label id="error_txt_entrega">Debe ingresar la dirección de entrega</label>
             </div>
         </div>
         <div class="form-group" id="espacio">
             <label for="selc_ciudades" id="lbl_secciones">Ciudad</label>
             <div id="bordes">
                 <i class="fas fa-globe" id="globe"></i>
-                <select   id="select" class="container" required>
-                    <option  value="" hidden  >Seleccionar Ciudad...</option>
-                  </select>
+                <select id="select" class="container">
+                    <option value="" selected>Seleccionar Ciudad...</option>
+                </select>
             </div>
+            <label id="error_txt_ciudad">Debe seleccionar la ciudad</label>
         </div>
 
 
@@ -112,7 +117,7 @@
                                 <span class="input-group-addon">
                                     <i class="fas fa-dollar-sign" id="cash"></i>
                                 </span>
-                                <input type="number" class="form-control" id="txt_efectivo" placeholder="¿Con cuánto abonas?" required min="0">
+                                <input type="number" class="form-control" id="txt_efectivo" placeholder="¿Con cuánto abonas?" min="0">
                             
                             </div>
                         </div>
@@ -123,20 +128,20 @@
             <div class="formAdicional" ng-if="metodoPago == 'T'">
             <div id="bordes">
                 <label for="" id="lbl_secciones">Número de tarjeta</label>
-                <input id="num_tarjeta" type="text" class="form-control" ng-model="num_tarjeta" name="num_tarjeta" value="" required pattern="^4[0-9]{12}(?:[0-9]{3})?$" maxlength="16">
+                <input id="num_tarjeta" type="text" class="form-control" ng-model="num_tarjeta" name="num_tarjeta" value="" pattern="^4[0-9]{12}(?:[0-9]{3})?$" maxlength="16">
                 <h6 style="color:red" ng-show="(metodoPago == 'T') && formLoQueSea.num_tarjeta.$invalid && formLoQueSea.num_tarjeta.$dirty">
             Incorrecto! Ingresar tarjeta VISA válida sin guiones ni espacios.</h6>
                 <label for="" id="lbl_secciones">Nombre y apellido del titular</label>
-                <input id="n_a_titular" type="text" class="form-control" name="n_a_titular" ng-model="n_a_titular" value="" required pattern="[a-zA-ZàáèéìíòóùúüñÀÁÈÉÌÍÒÓÙÚÜÑ ]{2,48}">
+                <input id="n_a_titular" type="text" class="form-control" name="n_a_titular" ng-model="n_a_titular" value="" pattern="[a-zA-ZàáèéìíòóùúüñÀÁÈÉÌÍÒÓÙÚÜÑ ]{2,48}">
                 <h6 style="color:red" ng-show="(metodoPago == 'T') && formLoQueSea.n_a_titular.$invalid && formLoQueSea.n_a_titular.$dirty">
             Incorrecto! Ingresar nombre completo como aparece en la tarjeta.</h6>
                 <label for="" class="" id="lbl_secciones">Código de seguridad</label>
-                <input id="cod_seg" type="text" class="form-control" name="cod_seg" ng-model="cod_seg" value="" required pattern="[0-9]\d\d" maxlength="3">
+                <input id="cod_seg" type="text" class="form-control" name="cod_seg" ng-model="cod_seg" value="" pattern="[0-9]\d\d" maxlength="3">
                 <h6 style="color:red" ng-show="(metodoPago == 'T') && formLoQueSea.cod_seg.$invalid && formLoQueSea.cod_seg.$dirty">
             Incorrecto</h6>
 
                 <label for="" class="" id="lbl_secciones">Fecha de vencimiento</label>
-                <input id="fecha_venc" type="month" class="form-control" ng-model="fecha_venc" name="fecha_venc" value="" required min="2021-04">
+                <input id="fecha_venc" type="month" class="form-control" ng-model="fecha_venc" name="fecha_venc" value="" min="2021-04">
                 <h6 style="color:red" ng-show="(metodoPago == 'T') && formLoQueSea.fecha_venc.$invalid && formLoQueSea.fecha_venc.$dirty">
             Incorrecto! Ingresar fecha válida no vencida.</h6>
           
@@ -171,7 +176,7 @@
             </div>
         </div>
         
-        <button type="submit" class="btn btn-primary" id="btn_submit">Confirmar</button>
+        <button type="submit" class="btn btn-primary" id="btn_submit" onclick="validar()">Confirmar</button>
       </form>
       
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
