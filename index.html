@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css.css">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
     <script src="https://kit.fontawesome.com/eb1cd33b61.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css.css">
     <script type="text/javascript" src="angular.min.js"></script>
     <script src="loquesea.module.js"></script>
     <title>Pedir algo</title>
@@ -83,16 +84,24 @@
         <div class="form-group" id="espacio">
             <label for="selc_ciudades" id="lbl_secciones">Ciudad</label>
             <div id="bordes">
-                <div class="input-group">
-                    <span class="input-group-addon">
-                    <i class="fas fa-globe" id="icons_cuidad"></i>
-                    </span>
-                <select id="selc_ciudades">
-                    <option value="-1">Seleccione...</option>
+                <select   id="select" class="container" required>
+                    <option  value="" hidden  >Seleccionar Ciudad...</option>
                   </select>
-                </div>
             </div>
         </div>
+
+                <!--
+        <div class="form-group" id="espacio">
+            <label for="selc_ciudades" id="lbl_secciones">Ciudad</label>
+            <div id="bordes">
+                <select   id="select" class="form-select form-select-lg mb-2" required >
+                    <option  value="" hidden  >Seleccionar Ciudad...</option>
+                </select>
+            </div>
+        </div>
+
+        -->
+
         
         <div class="form-group" id="espacio">
             <label for="" id="lbl_secciones">Método de pago</label>
@@ -133,15 +142,25 @@
             </div>
         </div>
         <div class="form-group" id="espacio">
-            <label for="txt_hora_entrega" id="lbl_secciones">Cuando recibirlo</label>
+            <label for="txt_fecha_entrega" id="lbl_secciones">Cuando recibirlo</label>
             <div id="bordes">
                 <div class="input-group">
                     <span class="input-group-addon">
-                        <i class="far fa-clock" id="icons"></i>
+                        <i class="far fa-calendar" id="icons"></i>
                     </span>
-                <input type="text" class="form-control" id="recipcion" placeholder="Fecha/Hora de recepción.">
+                <!-- <input type="text" class="form-control" id="recipcion" placeholder="Fecha/Hora de recepción."> -->
+                <input type="date" class="form-control recipcion" id='fecha_pedido' min='2021-04-27' >
             </div>
-            <input type="radio" class="btn btn-secondary" id="btn_antes_posible">   Lo antes posible</input> 
+            <div class="form-group" id="espacio">
+                <!-- <label for="txt_hora_entrega" id="lbl_secciones">Cuando recibirlo</label> -->
+                <div id="bordes">
+                    <div class="input-group pb-3">
+                        <span class="input-group-addon">
+                            <i class="far fa-clock" id="icons"></i>
+                        </span>
+                        <input type="time" id='hora_pedido' class="recipcion" name="hora" onchange="deshabilitarInput()">
+                </div>
+            <input type="checkbox" class="btn btn-secondary " id="btn_antes_posible" onchange="deshabilitarInput()">   Lo antes posible</input> 
             </div>
         </div>
         
@@ -150,14 +169,14 @@
       
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-</body>
+
 <footer>
 <p>Los repartidores ganan de media entre $40 y $90 por cada pedido que entregan</p>
 </footer>
 <div  id="espacio_btn_final">
 </div>
-
 <script src="js.js"></script> 
+</body>
 </html>
 
 
