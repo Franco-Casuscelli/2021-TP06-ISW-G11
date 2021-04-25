@@ -15,6 +15,9 @@
     color: #acacac;
     font-size: 17px;
 }
+#globe{
+    color: #acacac;
+}
 #titulo{
     color: #acacac;
     font-size: 17px;
@@ -46,7 +49,7 @@
     margin-bottom: 10px;
 }
 #selc_ciudades{
-    width: 90%;
+    width: 100%;
     color: #acacac;
     background-color: #1f1e1e;
     border-color: #1f1e1e;
@@ -180,6 +183,21 @@
 #hora_pedido::-webkit-calendar-picker-indicator {
     display: none;
     -webkit-appearance: none;
+}
+
+#select{
+    width: 90%;
+    border-color: #1f1e1e;
+    border: none !important;
+    border: 0px
+}
+#select:active{
+    border-color: #1f1e1e;
+    border: none !important;
+}
+#select:hover{
+    border-color: #1f1e1e;
+    border: none !important;
 }
 /*
 .form-select{
