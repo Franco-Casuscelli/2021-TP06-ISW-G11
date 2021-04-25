@@ -1,3 +1,24 @@
+$( document ).ready(function() {
+    document.getElementById("error_txt_pedido").style.display = 'none';
+    document.getElementById("error_txt_comercio").style.display = 'none';
+    document.getElementById("error_txt_entrega").style.display = 'none';
+    document.getElementById("error_txt_ciudad").style.display = 'none';
+    
+});
+
+var pagoSeleccionado;
+var formaPago;
+
+function procesarclickEfectivo(){
+    pagoSeleccionado = "S";
+    formaPago = "E";
+}
+
+function procesarclickTarjeta(){
+    pagoSeleccionado = "S";
+    formaPago = "T";
+}
+
 var select = document.getElementById("select"),
                      arr = [
                         "Almafuerte","Alta gracia","Arroyito","Bell ville","Capilla del monte", 
@@ -50,3 +71,91 @@ var select = document.getElementById("select"),
                 }
              }
             }
+
+function validar(){
+    
+    var txt_pedido = document.getElementById('txt_pedido').value;
+    var txt_comercio = document.getElementById('txt_comercio').value;
+    var txt_direccion_entrega = document.getElementById('txt_direccion_entrega').value;
+    var select = document.getElementById('select').value;
+
+    if(txt_pedido == ''){
+        document.getElementById("error_txt_pedido").style.display = 'block';
+
+        document.getElementById("error_txt_comercio").style.display = 'none';
+        document.getElementById("error_txt_entrega").style.display = 'none';
+        document.getElementById("error_txt_ciudad").style.display = 'none';
+        document.getElementById("error_pagoElegido").style.display = 'none';
+        return
+    }
+    if(txt_comercio == ''){
+        document.getElementById("error_txt_comercio").style.display = 'block';
+
+        document.getElementById("error_txt_pedido").style.display = 'none';
+        document.getElementById("error_txt_entrega").style.display = 'none';
+        document.getElementById("error_txt_ciudad").style.display = 'none';
+        document.getElementById("error_pagoElegido").style.display = 'none';
+        return
+    }
+
+    if(txt_direccion_entrega == ''){
+        document.getElementById("error_txt_entrega").style.display = 'block';
+
+        document.getElementById("error_txt_comercio").style.display = 'none';
+        document.getElementById("error_txt_pedido").style.display = 'none';
+        document.getElementById("error_txt_ciudad").style.display = 'none';
+        document.getElementById("error_pagoElegido").style.display = 'none';
+        return
+    }
+
+    if(select == ''){
+        document.getElementById("error_txt_ciudad").style.display = 'block';
+
+        document.getElementById("error_txt_entrega").style.display = 'none';
+        document.getElementById("error_txt_comercio").style.display = 'none';
+        document.getElementById("error_txt_pedido").style.display = 'none';
+        document.getElementById("error_pagoElegido").style.display = 'none';
+        return
+    }
+
+    if(pagoSeleccionado != 'S'){
+        console.log("No selecciono metodo pago");
+        document.getElementById("error_pagoElegido").style.display = 'block';
+
+        document.getElementById("error_txt_ciudad").style.display = 'none';
+        document.getElementById("error_txt_entrega").style.display = 'none';
+        document.getElementById("error_txt_comercio").style.display = 'none';
+        document.getElementById("error_txt_pedido").style.display = 'none';        
+    }
+    else {
+        if(formaPago == 'E'){
+            document.getElementById("error_txt_ciudad").style.display = 'none';
+            document.getElementById("error_txt_entrega").style.display = 'none';
+            document.getElementById("error_txt_comercio").style.display = 'none';
+            document.getElementById("error_txt_pedido").style.display = 'none';
+            document.getElementById("error_pagoElegido").style.display = 'none';
+            document.getElementById("error_txt_efectivo").style.display = 'none';
+            console.log("Entro efectivo");
+            if(document.getElementById("txt_efectivo").value == '') {
+                console.log("Campo abonar vacio");
+                document.getElementById("error_txt_efectivo").style.display = 'block';
+                return
+            }
+        }
+        else if(formaPago == 'T')
+        {
+            document.getElementById("error_txt_ciudad").style.display = 'none';
+            document.getElementById("error_txt_entrega").style.display = 'none';
+            document.getElementById("error_txt_comercio").style.display = 'none';
+            document.getElementById("error_txt_pedido").style.display = 'none';
+            document.getElementById("error_pagoElegido").style.display = 'none';
+        }
+    }
+
+
+    document.getElementById("error_txt_pedido").style.display = 'none';
+    document.getElementById("error_txt_comercio").style.display = 'none';
+    document.getElementById("error_txt_entrega").style.display = 'none';
+    document.getElementById("error_txt_ciudad").style.display = 'none';
+
+}
