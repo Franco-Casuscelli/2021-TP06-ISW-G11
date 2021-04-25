@@ -54,11 +54,11 @@ var select = document.getElementById("select"),
 
             // VALIDACION IMAGEN
             const MAXIMO_TAMANIO_BYTES = 5000000; // 5MB         
-            const $miInput = document.querySelector("#miInput");
-            $miInput.addEventListener("change", function () {
+            const $imagen = document.querySelector("#imagen");
+            $imagen.addEventListener("change", function () {
                 if (this.files.length <= 0) return;
                 const archivo = this.files[0];
-                var nombreArchivo = document.getElementById("miInput").value;
+                var nombreArchivo = document.getElementById("imagen").value;
                 var idxDot = nombreArchivo.lastIndexOf(".") + 1;
                 var extFile = nombreArchivo.substr(idxDot, nombreArchivo.length).toLowerCase();
                 if (extFile=="jpg"){
@@ -67,11 +67,11 @@ var select = document.getElementById("select"),
 
                         const tamanioEnMb = MAXIMO_TAMANIO_BYTES / 1000000;
                         alert(`El tamaño máximo es de ${tamanioEnMb} MB`);
-                        $miInput.value = "";}
+                        $imagen.value = "";}
                     
                 }else{
                     alert("Solo se pueden seleccionar imagenes .jpg");
-                    $miInput.value = "";
+                    $imagen.value = "";
                 }         
             });
 
