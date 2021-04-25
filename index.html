@@ -103,6 +103,21 @@
           ng-click="metodoPago='T';pagoElegido='S'">Tarjeta VISA
             </div>
             </div>
+            <!--Efectivo-->
+            <form id="formE" name="formE">
+                <div class="formEfectivo" id="bordes" ng-if="metodoPago == 'E'">
+                        <label for="txt_efectivo" id="lbl_secciones">Monto a pagar</label>
+                        <div id="bordes_pagoefectivo">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fas fa-dollar-sign"></i>
+                                </span>
+                                <input type="numer" class="form-control" id="txt_efectivo" placeholder="¿Con cuánto abonas?" required min="0">
+                            
+                            </div>
+                        </div>
+                </div>
+            </form>
 
             <form id="formTC" name="formTC">
             <div class="formAdicional" ng-if="metodoPago == 'T'">
@@ -131,6 +146,7 @@
             </div>
             </div>
         </div>
+
         <div class="form-group" id="espacio">
             <label for="txt_fecha_entrega" id="lbl_secciones">Cuando recibirlo</label>
             <div id="bordes">

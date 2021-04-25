@@ -29,6 +29,7 @@ var select = document.getElementById("select"),
              element.addEventListener('blur', function () {
                  this.size=0;
              });
+
              // para la segunda opcion lo unico que hay q hacer es quitar desde la linea 21 a la 31
 
              //Deshabitilar y Habilitar input radio button 
