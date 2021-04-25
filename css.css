@@ -315,11 +315,17 @@ footer{
     font-size: 13px;
 }
 
-#error_txt_ciudad, #error_pagoElegido, #error_txt_efectivo{
-    color: red;
-    font-size: 13px;
-
 #error_txt_ciudad{
     color: red;
     font-size: 13px;
+}
+
+#error_pagoElegido{
+    color: red;
+    font-size: 13px; 
+}
+
+#error_txt_efectivo{
+    color: red;
+    font-size: 13px; 
 }
