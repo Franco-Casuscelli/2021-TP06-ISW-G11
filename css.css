@@ -9,7 +9,7 @@
     background-color: #1f1e1e;
     border-bottom: 1px solid #4a4a4a;
     font-family: "Montserrat";
-    margin-top: 5px;
+    margin-top: 3px;
 }
 .fa-arrow-left{
     color: #acacac;
@@ -225,4 +225,36 @@ footer{
     font-size:12px;
     margin-left: 10px;
     margin-right: 10px;
+}
+
+#num_tarjeta{
+    background-color: #1f1e1e;
+    border-color: #acacac;
+    color: #acacac;
+    margin-bottom: 3px;
+    
+}
+#lbl_secciones{
+    margin-top: 10px;
+}
+#n_a_titular{
+    background-color: #1f1e1e;
+    border-color: #acacac;
+    color: #acacac;
+    margin-bottom: 3px;
+}
+#cod_seg{
+    background-color: #1f1e1e;
+    border-color: #acacac;
+    color: #acacac;
+    margin-bottom: 3px;
+}
+#fecha_venc{
+    background-color: #1f1e1e;
+    border-color: #acacac;
+    color: #acacac;
+    margin-bottom: 3px;
+}
+#credit_card{
+    margin-top: 15px;
 }
