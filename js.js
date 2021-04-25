@@ -3,6 +3,7 @@ $( document ).ready(function() {
     document.getElementById("error_txt_comercio").style.display = 'none';
     document.getElementById("error_txt_entrega").style.display = 'none';
     document.getElementById("error_txt_ciudad").style.display = 'none';
+
     
 });
 
@@ -18,6 +19,9 @@ function procesarclickTarjeta(){
     pagoSeleccionado = "S";
     formaPago = "T";
 }
+
+});
+
 
 var select = document.getElementById("select"),
                      arr = [
@@ -86,6 +90,7 @@ function validar(){
         document.getElementById("error_txt_entrega").style.display = 'none';
         document.getElementById("error_txt_ciudad").style.display = 'none';
         document.getElementById("error_pagoElegido").style.display = 'none';
+
         return
     }
     if(txt_comercio == ''){
@@ -94,7 +99,9 @@ function validar(){
         document.getElementById("error_txt_pedido").style.display = 'none';
         document.getElementById("error_txt_entrega").style.display = 'none';
         document.getElementById("error_txt_ciudad").style.display = 'none';
+
         document.getElementById("error_pagoElegido").style.display = 'none';
+
         return
     }
 
@@ -105,6 +112,7 @@ function validar(){
         document.getElementById("error_txt_pedido").style.display = 'none';
         document.getElementById("error_txt_ciudad").style.display = 'none';
         document.getElementById("error_pagoElegido").style.display = 'none';
+
         return
     }
 
@@ -150,6 +158,8 @@ function validar(){
             document.getElementById("error_txt_pedido").style.display = 'none';
             document.getElementById("error_pagoElegido").style.display = 'none';
         }
+    }
+        return
     }
 
 
