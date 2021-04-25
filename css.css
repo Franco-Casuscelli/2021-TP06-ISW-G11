@@ -329,3 +329,9 @@ footer{
     color: red;
     font-size: 13px; 
 }
+#imagen{
+    background-color: #1f1e1e;
+    border-color: #acacac;
+    color: #acacac;
+    margin-left: 10px; 
+}
