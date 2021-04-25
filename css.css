@@ -207,6 +207,7 @@
     -webkit-appearance: none;
 }
 
+
 #select{
     width: 90%;
     border-color: #1f1e1e;
@@ -221,6 +222,7 @@
     border-color: #1f1e1e;
     border: none !important;
 }
+
 /*
 .form-select{
     width: 100%;
@@ -297,6 +299,7 @@ footer{
 }
 #credit_card{
     margin-top: 15px;
+
 }
 
 #error_txt_pedido{
@@ -311,7 +314,18 @@ footer{
     color: red;
     font-size: 13px;
 }
+
 #error_txt_ciudad{
     color: red;
     font-size: 13px;
+}
+
+#error_pagoElegido{
+    color: red;
+    font-size: 13px; 
+}
+
+#error_txt_efectivo{
+    color: red;
+    font-size: 13px; 
 }

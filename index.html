@@ -89,35 +89,52 @@
             <label for="selc_ciudades" id="lbl_secciones">Ciudad</label>
             <div id="bordes">
                 <i class="fas fa-globe" id="globe"></i>
-                <select id="select" class="container">
-                    <option value="" selected>Seleccionar Ciudad...</option>
-                </select>
+                <select   id="select" class="container" required>
+                    <option  value="" hidden  >Seleccionar Ciudad...</option>
+                  </select>
             </div>
             <label id="error_txt_ciudad">Debe seleccionar la ciudad</label>
         </div>
-        
+
+
+            <div class="form-group" id="espacio">
+                <label for="" id="lbl_secciones">Método de pago</label>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <div id="btn_efectivo" onclick="procesarclickEfectivo()" ng-class="{'btn btn-secondary' : 'true', 'border' : metodoPago == 'E'}" ng-model="metodoEfectivo"
+                    ng-click="metodoPago='E';pagoElegido='S'">Efectivo
+                    </div>
+                    <div id="btn_tarjeta" onclick="procesarclickTarjeta()" ng-class="{'btn btn-secondary' : 'true', 'border' : metodoPago == 'T'}" ng-model="metodoTarjeta"
+                    ng-click="metodoPago='T';pagoElegido='S'">Tarjeta VISA
+                    </div>
+
+        <!--
         <div class="form-group" id="espacio">
             <label for="" id="lbl_secciones">Método de pago</label>
             <div class="btn-group" role="group" aria-label="Basic example">
                 <div id="btn_efectivo" ng-class="{'btn btn-secondary' : 'true', 'border' : metodoPago == 'E'}" ng-model="metodoEfectivo"
           ng-click="metodoPago='E';pagoElegido='S'">Efectivo
+        -->
+
                 </div>
-            <div id="btn_tarjeta" ng-class="{'btn btn-secondary' : 'true', 'border' : metodoPago == 'T'}" ng-model="metodoTarjeta"
-          ng-click="metodoPago='T';pagoElegido='S'">Tarjeta VISA
             </div>
-            </div>
-            <!--Efectivo-->
+            
+                <label id="error_pagoElegido" style="display: none;">Debe seleccionar un metodo de pago</label>
+            
+            <div class="form-group" id="formE" name="formE">
+
             <div id="formE" name="formE">
+
                 <div class="formEfectivo" id="bordes" ng-if="metodoPago == 'E'">
-                        <label for="txt_efectivo" id="lbl_secciones">Monto a pagar</label>
+                        <label for="lbl_efectivo" id="lbl_secciones">Monto a pagar</label>
                         <div id="bordes_pagoefectivo">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <i class="fas fa-dollar-sign" id="cash"></i>
                                 </span>
                                 <input type="number" class="form-control" id="txt_efectivo" placeholder="¿Con cuánto abonas?" min="0">
-                            
+
                             </div>
+                        <label id="error_txt_efectivo" style="display: none;">Debe ingresar el monto a abonar</label>
                         </div>
                 </div>
             </div>
@@ -160,6 +177,8 @@
                 <!-- <input type="text" class="form-control" id="recipcion" placeholder="Fecha/Hora de recepción."> -->
                 <input type="date" class="form-control recipcion" id='fecha_pedido' min='2021-04-27' >
                 </div>
+
+
             </div>
             <div class="form-group" id="espacio">
                 <!-- <label for="txt_hora_entrega" id="lbl_secciones">Cuando recibirlo</label> -->

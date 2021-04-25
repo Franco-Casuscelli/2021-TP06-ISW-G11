@@ -3,8 +3,21 @@ $( document ).ready(function() {
     document.getElementById("error_txt_comercio").style.display = 'none';
     document.getElementById("error_txt_entrega").style.display = 'none';
     document.getElementById("error_txt_ciudad").style.display = 'none';
+    
 });
 
+var pagoSeleccionado;
+var formaPago;
+
+function procesarclickEfectivo(){
+    pagoSeleccionado = "S";
+    formaPago = "E";
+}
+
+function procesarclickTarjeta(){
+    pagoSeleccionado = "S";
+    formaPago = "T";
+}
 
 var select = document.getElementById("select"),
                      arr = [
@@ -72,6 +85,7 @@ function validar(){
         document.getElementById("error_txt_comercio").style.display = 'none';
         document.getElementById("error_txt_entrega").style.display = 'none';
         document.getElementById("error_txt_ciudad").style.display = 'none';
+        document.getElementById("error_pagoElegido").style.display = 'none';
         return
     }
     if(txt_comercio == ''){
@@ -80,6 +94,7 @@ function validar(){
         document.getElementById("error_txt_pedido").style.display = 'none';
         document.getElementById("error_txt_entrega").style.display = 'none';
         document.getElementById("error_txt_ciudad").style.display = 'none';
+        document.getElementById("error_pagoElegido").style.display = 'none';
         return
     }
 
@@ -89,6 +104,7 @@ function validar(){
         document.getElementById("error_txt_comercio").style.display = 'none';
         document.getElementById("error_txt_pedido").style.display = 'none';
         document.getElementById("error_txt_ciudad").style.display = 'none';
+        document.getElementById("error_pagoElegido").style.display = 'none';
         return
     }
 
@@ -98,7 +114,42 @@ function validar(){
         document.getElementById("error_txt_entrega").style.display = 'none';
         document.getElementById("error_txt_comercio").style.display = 'none';
         document.getElementById("error_txt_pedido").style.display = 'none';
+        document.getElementById("error_pagoElegido").style.display = 'none';
         return
+    }
+
+    if(pagoSeleccionado != 'S'){
+        console.log("No selecciono metodo pago");
+        document.getElementById("error_pagoElegido").style.display = 'block';
+
+        document.getElementById("error_txt_ciudad").style.display = 'none';
+        document.getElementById("error_txt_entrega").style.display = 'none';
+        document.getElementById("error_txt_comercio").style.display = 'none';
+        document.getElementById("error_txt_pedido").style.display = 'none';        
+    }
+    else {
+        if(formaPago == 'E'){
+            document.getElementById("error_txt_ciudad").style.display = 'none';
+            document.getElementById("error_txt_entrega").style.display = 'none';
+            document.getElementById("error_txt_comercio").style.display = 'none';
+            document.getElementById("error_txt_pedido").style.display = 'none';
+            document.getElementById("error_pagoElegido").style.display = 'none';
+            document.getElementById("error_txt_efectivo").style.display = 'none';
+            console.log("Entro efectivo");
+            if(document.getElementById("txt_efectivo").value == '') {
+                console.log("Campo abonar vacio");
+                document.getElementById("error_txt_efectivo").style.display = 'block';
+                return
+            }
+        }
+        else if(formaPago == 'T')
+        {
+            document.getElementById("error_txt_ciudad").style.display = 'none';
+            document.getElementById("error_txt_entrega").style.display = 'none';
+            document.getElementById("error_txt_comercio").style.display = 'none';
+            document.getElementById("error_txt_pedido").style.display = 'none';
+            document.getElementById("error_pagoElegido").style.display = 'none';
+        }
     }
 
 
