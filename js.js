@@ -50,14 +50,29 @@ var select = document.getElementById("select"),
              }
             }
 
-            function validarTipoArchivo(){
-                var nombreArchivo = document.getElementById("nombreArchivo").value;
+           
+
+            // VALIDACION IMAGEN
+            const MAXIMO_TAMANIO_BYTES = 5000000; // 5MB         
+            const $miInput = document.querySelector("#miInput");
+            $miInput.addEventListener("change", function () {
+                if (this.files.length <= 0) return;
+                const archivo = this.files[0];
+                var nombreArchivo = document.getElementById("miInput").value;
                 var idxDot = nombreArchivo.lastIndexOf(".") + 1;
                 var extFile = nombreArchivo.substr(idxDot, nombreArchivo.length).toLowerCase();
                 if (extFile=="jpg"){
-                    //Lo que hay que hacer
+
+                    if (archivo.size > MAXIMO_TAMANIO_BYTES) {
+
+                        const tamanioEnMb = MAXIMO_TAMANIO_BYTES / 1000000;
+                        alert(`El tamaño máximo es de ${tamanioEnMb} MB`);
+                        $miInput.value = "";}
+                    
                 }else{
-                    document.getElementById("nombreArchivo").value = "";
                     alert("Solo se pueden seleccionar imagenes .jpg");
-                }   
-            }
+                    $miInput.value = "";
+                }         
+            });
+
+                        
