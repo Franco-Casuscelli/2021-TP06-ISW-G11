@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css.css">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
     <script src="https://kit.fontawesome.com/eb1cd33b61.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
-    <script scr="js.js"></script>
+
+    <link rel="stylesheet" href="css.css">
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script src="loquesea.module.js"></script>
+
     <title>Pedir algo</title>
 </head>
 <header>
@@ -22,34 +26,39 @@
     </div>
 </header>
 
-<body id="cuerpo">
+<body ng-app="LoQueSeaModule" ng-controller="LoQueSeaController" id="cuerpo">
     
-    <form id="formulario">
+    <form name="formLoQueSea" ng-model="formLoQueSea" id="formulario">
             <label id="intro"> Recorremos tu ciudad para enviar lo que necesites. Para realizar un pedido, usa "Lo que sea".</label>
-        <div class="form-row">
-          <div class="form-group col-md-6" id="espacio">
+        
+          <div class="form-group" id="espacio">
             <label for="txt_pedido" id="lbl_secciones">Tu pedido</label>
             <div id="bordes">
                 <div class="input-group">
                     <span class="input-group-addon">
                         <i class="far fa-edit" id="icons"></i>
                     </span>
-                    <input type="text" class="form-control" id="txt_pedido" placeholder="¿Qué quieres pedir?" required>
+                    <input type="text" class="form-control" id="txt_pedido" placeholder="¿Qué quieres pedir?">
+                   
                 
                 </div>
+                <label id="error_txt_pedido">Debe ingresar el pedido</label>
             </div>
-          </div>
+          
         </div>
         
-          <div class="form-group" >
-            <label for="txt_subir_imagen" id="lbl_secciones">Imagen del pedido</label>
+        <div class="form-group" >
+            <label for="txt_subir_imagen" id="lbl_secciones">Imagen del pedido (opcional)</label>
             <div id="bordes">
                 <div id="multer">
                     <div class="input-group">
                         <span class="input-group-addon">
                             <i class="far fa-images" id="icons_pict"></i>
-                        </span>
-                        <p>&nbsp; --logica para subir imagen--</p>
+                        </span> 
+                        <div class="form-group">                              
+                            <input type="file" accept=".jpg" class="form-control-file" id="imagen">
+                        </div>
+                         
                     </div>
                     
                 </div>
@@ -63,9 +72,10 @@
                     <span class="input-group-addon">
                         <i class="fas fa-thumbtack" id="icons"></i>
                     </span>
-                    <input type="text" class="form-control" id="txt_comercio" placeholder="Direccion de comercio" required>
+                    <input type="text" class="form-control" id="txt_comercio" placeholder="Direccion de comercio">
 
                 </div>
+                <label id="error_txt_comercio">Debe ingresar el comercio</label>
             </div>
         </div>
         <div class="form-group" id="espacio">
@@ -75,6 +85,7 @@
                     <span class="input-group-addon">
                         <i class="far fa-flag" id="icons"></i>
                     </span>
+
                     <!--Nahuel-Grupo calle-->
                     <div class="formulario__grupo" id="grupo__calle">
                         <div class="formulario__grupo-input">
@@ -110,52 +121,127 @@
                         </div>
                         
                     </div>
-
+<!--
+                    <input type="text" class="form-control" id="txt_direccion_entrega" placeholder="Direccion de entrega">
+-->
                 </div>
+                <label id="error_txt_entrega">Debe ingresar la dirección de entrega</label>
             </div>
         </div>
         <div class="form-group" id="espacio">
             <label for="selc_ciudades" id="lbl_secciones">Ciudad</label>
             <div id="bordes">
-                <div class="input-group">
-                    <span class="input-group-addon">
-                    <i class="fas fa-globe" id="icons_cuidad"></i>
-                    </span>
-                <select id="selc_ciudades">
-                    <option value="-1">Seleccione...</option>
+                <i class="fas fa-globe" id="globe"></i>
+                <select   id="select" class="container">
+                    <option  value="" hidden  >Seleccionar Ciudad...</option>
                   </select>
-                </div>
             </div>
+            <label id="error_txt_ciudad">Debe seleccionar la ciudad</label>
         </div>
-        
+
+
+            <div class="form-group" id="espacio">
+                <label for="" id="lbl_secciones">Método de pago</label>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <div id="btn_efectivo" onclick="procesarclickEfectivo()" ng-class="{'btn btn-secondary' : 'true', 'border' : metodoPago == 'E'}" ng-model="metodoEfectivo"
+                    ng-click="metodoPago='E';pagoElegido='S'">Efectivo
+                    </div>
+                    <div id="btn_tarjeta" onclick="procesarclickTarjeta()" ng-class="{'btn btn-secondary' : 'true', 'border' : metodoPago == 'T'}" ng-model="metodoTarjeta"
+                    ng-click="metodoPago='T';pagoElegido='S'">Tarjeta VISA
+                    </div>
+
+        <!--
         <div class="form-group" id="espacio">
             <label for="" id="lbl_secciones">Método de pago</label>
-            <div >
             <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-secondary" id="btn_efectivo">Efectivo</button>
-                <button type="button" class="btn btn-secondary" id="btn_tarjeta">Tarjeta</button>
-              </div>
+                <div id="btn_efectivo" ng-class="{'btn btn-secondary' : 'true', 'border' : metodoPago == 'E'}" ng-model="metodoEfectivo"
+          ng-click="metodoPago='E';pagoElegido='S'">Efectivo
+        -->
+
+                </div>
+            </div>
+            
+                <label id="error_pagoElegido" style="display: none;">Debe seleccionar un metodo de pago</label>
+            
+            <div class="form-group" id="formE" name="formE">
+
+            <div id="formE" name="formE">
+
+                <div class="formEfectivo" id="bordes" ng-if="metodoPago == 'E'">
+                        <label for="lbl_efectivo" id="lbl_secciones">Monto a pagar</label>
+                        <div id="bordes_pagoefectivo">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fas fa-dollar-sign" id="cash"></i>
+                                </span>
+                                <input type="number" class="form-control" id="txt_efectivo" placeholder="¿Con cuánto abonas?" min="0">
+
+                            </div>
+                        <label id="error_txt_efectivo" style="display: none;">Debe ingresar el monto a abonar</label>
+                        </div>
+                </div>
+            </div>
+
+            <form id="formTC" name="formTC">
+            <div class="formAdicional" ng-if="metodoPago == 'T'">
+            <div id="bordes">
+                <label for="" id="lbl_secciones">Número de tarjeta</label>
+                <input id="num_tarjeta" type="text" class="form-control" ng-model="num_tarjeta" name="num_tarjeta" value="" pattern="^4[0-9]{12}(?:[0-9]{3})?$" maxlength="16">
+                <h6 style="color:red" ng-show="(metodoPago == 'T') && formLoQueSea.num_tarjeta.$invalid && formLoQueSea.num_tarjeta.$dirty">
+            Incorrecto! Ingresar tarjeta VISA válida sin guiones ni espacios.</h6>
+                <label for="" id="lbl_secciones">Nombre y apellido del titular</label>
+                <input id="n_a_titular" type="text" class="form-control" name="n_a_titular" ng-model="n_a_titular" value="" pattern="[a-zA-ZàáèéìíòóùúüñÀÁÈÉÌÍÒÓÙÚÜÑ ]{2,48}">
+                <h6 style="color:red" ng-show="(metodoPago == 'T') && formLoQueSea.n_a_titular.$invalid && formLoQueSea.n_a_titular.$dirty">
+            Incorrecto! Ingresar nombre completo como aparece en la tarjeta.</h6>
+                <label for="" class="" id="lbl_secciones">Código de seguridad</label>
+                <input id="cod_seg" type="text" class="form-control" name="cod_seg" ng-model="cod_seg" value="" pattern="[0-9]\d\d" maxlength="3">
+                <h6 style="color:red" ng-show="(metodoPago == 'T') && formLoQueSea.cod_seg.$invalid && formLoQueSea.cod_seg.$dirty">
+            Incorrecto</h6>
+
+                <label for="" class="" id="lbl_secciones">Fecha de vencimiento</label>
+                <input id="fecha_venc" type="month" class="form-control" ng-model="fecha_venc" name="fecha_venc" value="" min="2021-04">
+                <h6 style="color:red" ng-show="(metodoPago == 'T') && formLoQueSea.fecha_venc.$invalid && formLoQueSea.fecha_venc.$dirty">
+            Incorrecto! Ingresar fecha válida no vencida.</h6>
+          
+                <div class="form-group" id="credit_card">
+                <img src="visa.jpg" id="visa">
+                </div>
+            </div>
             </div>
         </div>
+
         <div class="form-group" id="espacio">
-            <label for="txt_hora_entrega" id="lbl_secciones">Cuando recibirlo</label>
+            <label for="txt_fecha_entrega" id="lbl_secciones">Cuando recibirlo</label>
             <div id="bordes">
                 <div class="input-group">
                     <span class="input-group-addon">
-                        <i class="far fa-clock" id="icons"></i>
+                        <i class="far fa-calendar" id="icons"></i>
                     </span>
-                <input type="text" class="form-control" id="recipcion" placeholder="Fecha/Hora de recepción.">
+                <!-- <input type="text" class="form-control" id="recipcion" placeholder="Fecha/Hora de recepción."> -->
+                <input type="date" class="form-control recipcion" id='fecha_pedido' min='2021-04-27' onchange="deshabilitarInput()" >
+                </div>
+
+
             </div>
-            <input type="radio" class="btn btn-secondary" id="btn_antes_posible">   Lo antes posible</input> 
+            <div class="form-group" id="espacio">
+                <!-- <label for="txt_hora_entrega" id="lbl_secciones">Cuando recibirlo</label> -->
+                <div id="bordes">
+                    <div class="input-group pb-3">
+                        <span class="input-group-addon">
+                            <i class="far fa-clock" id="icons"></i>
+                        </span>
+                        <input type="time" id='hora_pedido' class="recipcion" name="hora" onchange="deshabilitarInput()">
+                </div>
+            <input type="checkbox" class="btn btn-secondary " id="btn_antes_posible" onchange="deshabilitarInput()">   Lo antes posible</input> 
             </div>
         </div>
         
-        <button type="submit" class="btn btn-primary" id="btn_submit">Confirmar</button>
+        <button type="submit" class="btn btn-primary" id="btn_submit" onclick="validar()">Confirmar</button>
       </form>
       
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-</body>
+
 <footer>
 <p>Los repartidores ganan de media entre $40 y $90 por cada pedido que entregan</p>
 </footer>
@@ -167,11 +253,14 @@
 
 <div  id="espacio_btn_final">
 </div>
-
 <script src="js.js"></script> 
+
 
 <!--Nahuel - Iconos validacion-->
 <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin = "anonymous"></script>
+
+
+</body>
 
 </html>
 

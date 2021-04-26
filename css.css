@@ -9,11 +9,14 @@
     background-color: #1f1e1e;
     border-bottom: 1px solid #4a4a4a;
     font-family: "Montserrat";
-    margin-top: 5px;
+    margin-top: 3px;
 }
 .fa-arrow-left{
     color: #acacac;
     font-size: 17px;
+}
+#globe{
+    color: #acacac;
 }
 #titulo{
     color: #acacac;
@@ -46,7 +49,7 @@
     margin-bottom: 10px;
 }
 #selc_ciudades{
-    width: 90%;
+    width: 100%;
     color: #acacac;
     background-color: #1f1e1e;
     border-color: #1f1e1e;
@@ -62,17 +65,14 @@
     border-color: #3f3e3e;
     font-weight: 600;
     margin-bottom: 10px;
-
     position: fixed;
 	bottom: 0px;
 	right: 5%;
     left:5%;
 	transition: all 300ms ease 0ms;
 	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-	z-index: 99;
-}
-#btn_submit:hover{
-    opacity: 0.7;
+	z-index: 999;
+    opacity: 1;
 }
 #txt_comercio{
     width: 90%;
@@ -85,7 +85,7 @@
 #txt_direccion_entrega{
     width: 90%;
     color: #acacac;
-    background-color: #1f1e1e;
+    background-color: #1f1e1e !important;
     border-color: #1f1e1e;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -99,23 +99,32 @@
     margin-bottom: 10px;
 }
 #btn_efectivo{
-    width: 50%;
+    width: 48%;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     background-color: #242424;
     border-color: #242424;
+    margin-bottom: 5px;
 }
 #btn_tarjeta{
-    width: 50%;
+    width: 48%;
+    margin-left: 6px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     background-color: #242424;
     border-color: #242424;
+    margin-bottom: 5px;
+   
 }
+
+#bordes_pagoefectivo i{
+    margin: 10px;
+}
+
 .btn-group{
     width: 100%;
 }
-#recipcion{
+.recipcion{
     background-color: #1f1e1e;
     border-color: #1f1e1e;
     margin-bottom: 10px;
@@ -125,6 +134,15 @@
     background-color: #1f1e1e;
     border-color: #1f1e1e;
     margin-bottom: 3px;
+}
+#txt_efectivo{
+    border-color: #acacac;
+    width: 90%;
+    color: #acacac;
+    background-color: #1f1e1e;
+    border-color: #1f1e1e;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 #lbl_secciones{
     font-size: 14px;
@@ -140,6 +158,13 @@
     top:18px;
     color: #acacac;
 }
+#cash{
+    position: relative;
+    top:10px;
+    right: 10px;
+    font-size:16px;
+    color: #acacac;
+}
 #icons_pict{
     font-size:16px;
     color: #acacac;
@@ -150,6 +175,75 @@
     font-size:16px;
     color: #acacac;
 }
+
+.container{
+    width:auto;
+    padding: 7px;
+    background-color: #1f1e1e;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #acacac;
+    border-radius: 3px;
+}
+.container option{
+    padding: 2px;
+    color:#DDDDDD;
+}
+#fecha_pedido{
+    background-color: #1f1e1e;
+    border: none;
+    color: #acacac ;
+    
+}
+#fecha_pedido:hover, #hora_pedido:hover{
+    cursor:text;
+}
+#hora_pedido{
+    border: none;
+    margin-left: 1em;
+    color: #acacac ;
+
+}
+
+#hora_pedido::-webkit-inner-spin-button,
+#hora_pedido::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+
+#select{
+    width: 90%;
+    border-color: #1f1e1e;
+    border: none !important;
+    border: 0px
+}
+#select:active{
+    border-color: #1f1e1e;
+    border: none !important;
+}
+#select:hover{
+    border-color: #1f1e1e;
+    border: none !important;
+}
+
+/*
+.form-select{
+    width: 100%;
+    height: 40px;
+    padding: initial 10px;
+    background-color: #1f1e1e;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #acacac;
+    border-radius: 3px;
+}
+*/
+
+
+
 textarea:focus,
 input[type="text"]:focus,
 input[type="password"]:focus,
@@ -179,6 +273,7 @@ footer{
     margin-left: 10px;
     margin-right: 10px;
 }
+
 
 /* Nahuel - Direccion de entrega*/
 .formulario__grupo-correcto .formulario__validacion-estado{
@@ -265,3 +360,71 @@ footer{
     margin: 0;
 }
 /* Nahuel*/
+
+#num_tarjeta{
+    background-color: #1f1e1e;
+    border-color: #acacac;
+    color: #acacac;
+    margin-bottom: 3px;
+    
+}
+#lbl_secciones{
+    margin-top: 10px;
+}
+#n_a_titular{
+    background-color: #1f1e1e;
+    border-color: #acacac;
+    color: #acacac;
+    margin-bottom: 3px;
+}
+#cod_seg{
+    background-color: #1f1e1e;
+    border-color: #acacac;
+    color: #acacac;
+    margin-bottom: 3px;
+}
+#fecha_venc{
+    background-color: #1f1e1e;
+    border-color: #acacac;
+    color: #acacac;
+    margin-bottom: 3px;
+}
+#credit_card{
+    margin-top: 15px;
+
+}
+
+#error_txt_pedido{
+    color: red;
+    font-size: 13px;
+}
+#error_txt_comercio{
+    color: red;
+    font-size: 13px;
+}
+#error_txt_entrega{
+    color: red;
+    font-size: 13px;
+}
+
+#error_txt_ciudad{
+    color: red;
+    font-size: 13px;
+}
+
+#error_pagoElegido{
+    color: red;
+    font-size: 13px; 
+}
+
+#error_txt_efectivo{
+    color: red;
+    font-size: 13px; 
+}
+#imagen{
+    background-color: #1f1e1e;
+    border-color: #acacac;
+    color: #acacac;
+    margin-left: 10px; 
+}
+
