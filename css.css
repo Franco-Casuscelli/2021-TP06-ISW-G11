@@ -193,6 +193,11 @@
 #fecha_pedido{
     background-color: #1f1e1e;
     border: none;
+    color: #acacac ;
+    
+}
+#fecha_pedido:hover, #hora_pedido:hover{
+    cursor:text;
 }
 #hora_pedido{
     border: none;

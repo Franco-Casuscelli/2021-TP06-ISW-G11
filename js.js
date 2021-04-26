@@ -56,17 +56,28 @@ var select = document.getElementById("select"),
              //Deshabitilar y Habilitar input radio button 
             
              function deshabilitarInput(){
-             if(document.querySelector('#hora_pedido').value !== ''){
+             if(document.querySelector('#fecha_pedido').value !== '' || document.querySelector('#hora_pedido').value !== ''  ){
                  document.querySelector('#btn_antes_posible').disabled = true;
+              
              }
              else{
                 document.querySelector('#btn_antes_posible').disabled = false;
                 if(document.querySelector('#btn_antes_posible').checked === true){
+                    document.querySelector('#fecha_pedido').disabled = true;
                     document.querySelector('#hora_pedido').disabled = true;
                     document.querySelector('#hora_pedido').value = '';
+                    document.querySelector('#fecha_pedido').value = '';
+                    document.querySelector('#fecha_pedido').style.cursor= 'auto';
+                    document.querySelector('#hora_pedido').style.cursor= 'auto';
+
+
                 }
                 else{
                     document.querySelector('#hora_pedido').disabled = false;
+                    document.querySelector('#fecha_pedido').disabled = false;
+                    document.querySelector('#fecha_pedido').style.cursor= 'text';
+                    document.querySelector('#hora_pedido').style.cursor= 'text';
+
                     
                 }
              }
