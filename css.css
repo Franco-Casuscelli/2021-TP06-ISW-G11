@@ -276,19 +276,11 @@ footer{
 
 
 /* Nahuel - Direccion de entrega*/
-.formulario__grupo-correcto .formulario__validacion-estado{
-    color:  #1ed12d;
-    opacity: 1;
-}
 
 .formulario__grupo-incorrecto .formulario__label {
     color: #bb2929;
 }
 
-.formulario__grupo-incorrecto .formulario__validacion-estado{
-    color: #bb2929;
-    opacity: 1;
-}
 
 .formulario__grupo-incorrecto .formulario__input{
     border: 3px solid #bb2929;
@@ -393,7 +385,10 @@ footer{
     margin-top: 15px;
 
 }
-
+#error1, #error2, #error3{
+    color: red;
+    font-size: 13px;
+}
 #error_txt_pedido{
     color: red;
     font-size: 13px;
