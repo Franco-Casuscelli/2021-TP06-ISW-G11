@@ -275,12 +275,20 @@ function validar(){
             document.getElementById("error_txt_pedido").style.display = 'none';
             document.getElementById("error_pagoElegido").style.display = 'none';
             document.getElementById("error_txt_efectivo").style.display = 'none';
-            document.getElementById("error_txt_recibirlo").style.display = 'none';
+
+            document.getElementById("error_txt_efectivo_negativo").style.display = 'none';
+    
+ 
+            //document.getElementById("error_txt_recibirlo").style.display = 'none';
+
             console.log("Entro efectivo");
             if(document.getElementById("txt_efectivo").value == '') {
                 console.log("Campo abonar vacio");
                 document.getElementById("error_txt_efectivo").style.display = 'block';
                 return
+            }
+            else if(document.getElementById("txt_efectivo").value <= 0){
+                document.getElementById("error_txt_efectivo_negativo").style.display = 'block';
             }
         }
         else if(formaPago == 'T')

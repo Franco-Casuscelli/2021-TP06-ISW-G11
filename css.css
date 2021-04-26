@@ -431,6 +431,12 @@ footer{
     color: red;
     font-size: 13px; 
 }
+
+#error_txt_efectivo_negativo{
+    color: red;
+    font-size: 13px; 
+}
+
 #imagen{
     background-color: #1f1e1e;
     border-color: #acacac;
