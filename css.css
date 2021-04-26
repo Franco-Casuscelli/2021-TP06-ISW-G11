@@ -274,6 +274,93 @@ footer{
     margin-right: 10px;
 }
 
+
+/* Nahuel - Direccion de entrega*/
+.formulario__grupo-correcto .formulario__validacion-estado{
+    color:  #1ed12d;
+    opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__label {
+    color: #bb2929;
+}
+
+.formulario__grupo-incorrecto .formulario__validacion-estado{
+    color: #bb2929;
+    opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__input{
+    border: 3px solid #bb2929;
+}
+
+.formulario__input-error{
+    font-size: 12px;
+    margin-bottom: 0;
+    display: none;
+}
+
+.formulario__input-error-activo{
+    display: block;
+}
+
+.formulario__grupo-input{
+    position: relative;
+}
+
+.formulario__input{
+    width: 100%;
+    border: 3px solid transparent;
+    height: 45px;
+    padding: 0 40px 0 10px;
+}
+
+.formulario__validacion-estado{
+    position: absolute;
+    right: 10px;
+    bottom: 15px;
+    z-index: 100;
+    font-size: 16px;
+    opacity: 0;
+}
+
+#calle,#numero,#ciudad{
+    width: 90%;
+    color: #acacac;
+    background-color: #1f1e1e;
+    border-color: #1f1e1e;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#referencia{
+    width: 100%;
+    color: #acacac;
+    background-color: #1f1e1e;
+    border-color: #1f1e1e;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 20px;
+}
+
+.formulario__mensaje {
+    height: 45px;
+    line-height: 45px;
+    background: #f66060;
+    padding: 0 15px;
+    border-radius: 3px;
+    display: none;
+}
+
+.formulario__mensaje-activo{
+    display: block;
+}
+
+.formulario__mensaje p {
+    margin: 0;
+}
+/* Nahuel*/
+
 #num_tarjeta{
     background-color: #1f1e1e;
     border-color: #acacac;
@@ -340,3 +427,4 @@ footer{
     color: #acacac;
     margin-left: 10px; 
 }
+
