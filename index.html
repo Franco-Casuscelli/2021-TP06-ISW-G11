@@ -58,6 +58,8 @@
                         <div class="form-group">                              
                             <input type="file" accept=".jpg" class="form-control-file" id="imagen">
                         </div>
+                        <label id="error_txt_solo_imagenes">Solo se pueden seleccionar imagenes .jpg</label>
+                        <label id="error_txt_5_megas">El tamaño máximo es de 5 MB</label>
                          
                     </div>
                     
@@ -240,22 +242,23 @@
                     </span>
                 <!-- <input type="text" class="form-control" id="recipcion" placeholder="Fecha/Hora de recepción."> -->
                 <input type="date" class="form-control recipcion" id='fecha_pedido' min='2021-04-27' onchange="deshabilitarInput()" >
-                </div>
-
-
-            </div>
-            <div class="form-group" id="espacio">
-                <!-- <label for="txt_hora_entrega" id="lbl_secciones">Cuando recibirlo</label> -->
-                <div id="bordes">
-                    <div class="input-group pb-3">
+                <div class="input-group pb-3">
                         <span class="input-group-addon">
                             <i class="far fa-clock" id="icons"></i>
                         </span>
                         <input type="time" id='hora_pedido' class="recipcion" name="hora" onchange="deshabilitarInput()">
+                    </div>
+                    
                 </div>
-            <input type="checkbox" class="btn btn-secondary " id="btn_antes_posible" onchange="deshabilitarInput()">   Lo antes posible</input> 
+
+
             </div>
-        </div>
+            
+                <!-- <label for="txt_hora_entrega" id="lbl_secciones">Cuando recibirlo</label> -->
+    
+            <input type="checkbox" class="btn btn-secondary " id="btn_antes_posible" onchange="deshabilitarInput()">   Lo antes posible</input> 
+            
+            <label id="error_txt_recibirlo">Debe seleccionar cuando desea recibir el pedido</label>
         
         <button type="submit" class="btn btn-primary" id="btn_submit" onclick="validar()">Confirmar</button>
       </form>

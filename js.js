@@ -4,6 +4,9 @@ $( document ).ready(function() {
     document.getElementById("error_txt_comercio").style.display = 'none';
     document.getElementById("error_txt_entrega").style.display = 'none';
     document.getElementById("error_txt_ciudad").style.display = 'none';
+    document.getElementById("error_txt_solo_imagenes").style.display = 'none';
+    document.getElementById("error_txt_5_megas").style.display = 'none';
+    document.getElementById("error_txt_recibirlo").style.display = 'none';
     
 });
 
@@ -93,19 +96,25 @@ var select = document.getElementById("select"),
                 var nombreArchivo = document.getElementById("imagen").value;
                 var idxDot = nombreArchivo.lastIndexOf(".") + 1;
                 var extFile = nombreArchivo.substr(idxDot, nombreArchivo.length).toLowerCase();
+                    document.getElementById("error_txt_solo_imagenes").style.display = 'none';
+                    document.getElementById("error_txt_5_megas").style.display = 'none';
                 if (extFile=="jpg"){
 
                     if (archivo.size > MAXIMO_TAMANIO_BYTES) {
 
-                        const tamanioEnMb = MAXIMO_TAMANIO_BYTES / 1000000;
-                        alert(`El tamaño máximo es de ${tamanioEnMb} MB`);
+                        document.getElementById("error_txt_5_megas").style.display = 'block';
                         $imagen.value = "";}
                     
                 }else{
-                    alert("Solo se pueden seleccionar imagenes .jpg");
+                    document.getElementById("error_txt_solo_imagenes").style.display = 'block';
                     $imagen.value = "";
-                }         
+                }      
+                
+                
+                
             });
+
+            
 
     /* Nahuel - Direccion de entrega */
     const formulario = document.getElementById('formulario');
@@ -186,15 +195,18 @@ var select = document.getElementById("select"),
             });
         }
     })
+
+    
     /* Nahuel*/
 
 
-
+    
 
 function validar(){
     
     var txt_pedido = document.getElementById('txt_pedido').value;
     var txt_comercio = document.getElementById('txt_comercio').value;
+    var fecha_pedido = document.getElementById('fecha_pedido').value;
     //var txt_direccion_entrega = document.getElementById('txt_direccion_entrega').value;
     var select = document.getElementById('select').value;
 
@@ -205,6 +217,7 @@ function validar(){
         document.getElementById("error_txt_entrega").style.display = 'none';
         document.getElementById("error_txt_ciudad").style.display = 'none';
         document.getElementById("error_pagoElegido").style.display = 'none';
+        document.getElementById("error_txt_recibirlo").style.display = 'none';
         return
     }
     if(txt_comercio == ''){
@@ -214,6 +227,7 @@ function validar(){
         document.getElementById("error_txt_entrega").style.display = 'none';
         document.getElementById("error_txt_ciudad").style.display = 'none';
         document.getElementById("error_pagoElegido").style.display = 'none';
+        document.getElementById("error_txt_recibirlo").style.display = 'none';
         return
     }
 
@@ -225,6 +239,7 @@ function validar(){
         document.getElementById("error_txt_pedido").style.display = 'none';
         document.getElementById("error_txt_ciudad").style.display = 'none';
         document.getElementById("error_pagoElegido").style.display = 'none';
+        document.getElementById("error_txt_recibirlo").style.display = 'none';
         return
     }
     
@@ -236,6 +251,7 @@ function validar(){
         document.getElementById("error_txt_comercio").style.display = 'none';
         document.getElementById("error_txt_pedido").style.display = 'none';
         document.getElementById("error_pagoElegido").style.display = 'none';
+        document.getElementById("error_txt_recibirlo").style.display = 'none';
         return
     }
 
@@ -247,6 +263,7 @@ function validar(){
         document.getElementById("error_txt_entrega").style.display = 'none';
         document.getElementById("error_txt_comercio").style.display = 'none';
         document.getElementById("error_txt_pedido").style.display = 'none';  
+        document.getElementById("error_txt_recibirlo").style.display = 'none';
         return
 
     }
@@ -258,6 +275,7 @@ function validar(){
             document.getElementById("error_txt_pedido").style.display = 'none';
             document.getElementById("error_pagoElegido").style.display = 'none';
             document.getElementById("error_txt_efectivo").style.display = 'none';
+            document.getElementById("error_txt_recibirlo").style.display = 'none';
             console.log("Entro efectivo");
             if(document.getElementById("txt_efectivo").value == '') {
                 console.log("Campo abonar vacio");
@@ -272,13 +290,25 @@ function validar(){
             document.getElementById("error_txt_comercio").style.display = 'none';
             document.getElementById("error_txt_pedido").style.display = 'none';
             document.getElementById("error_pagoElegido").style.display = 'none';
+            document.getElementById("error_txt_recibirlo").style.display = 'none';
             return
 
         }
     }
+    
+    if(fecha_pedido == '' && document.querySelector('#btn_antes_posible').checked === false){
+        document.getElementById("error_txt_recibirlo").style.display = 'block';
+        
+        document.getElementById("error_txt_ciudad").style.display = 'none';
+        document.getElementById("error_txt_entrega").style.display = 'none';
+        document.getElementById("error_txt_comercio").style.display = 'none';
+        document.getElementById("error_txt_pedido").style.display = 'none';
+        document.getElementById("error_pagoElegido").style.display = 'none';
+        return
+    }
+    
 
-
-  
+    document.getElementById("error_txt_recibirlo").style.display = 'none';
     document.getElementById("error_txt_pedido").style.display = 'none';
     document.getElementById("error_txt_comercio").style.display = 'none';
     document.getElementById("error_txt_entrega").style.display = 'none';
@@ -286,6 +316,6 @@ function validar(){
 
 
 
-    alert("llegue!!")
+    alert("Pedido enviado con exito")
 
 }
