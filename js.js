@@ -277,7 +277,7 @@ function validar(){
             document.getElementById("error_txt_efectivo").style.display = 'none';
 
             document.getElementById("error_txt_efectivo_negativo").style.display = 'none';
-    
+            
  
             //document.getElementById("error_txt_recibirlo").style.display = 'none';
 
@@ -289,6 +289,7 @@ function validar(){
             }
             else if(document.getElementById("txt_efectivo").value <= 0){
                 document.getElementById("error_txt_efectivo_negativo").style.display = 'block';
+                return
             }
         }
         else if(formaPago == 'T')
