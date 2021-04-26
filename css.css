@@ -158,6 +158,9 @@
     top:18px;
     color: #acacac;
 }
+#icons2{
+    color: #acacac;
+}
 #cash{
     position: relative;
     top:10px;
@@ -326,7 +329,7 @@ footer{
 }
 
 #referencia{
-    width: 100%;
+    width: 90%;
     color: #acacac;
     background-color: #1f1e1e;
     border-color: #1f1e1e;
