@@ -388,6 +388,18 @@ footer{
     margin-top: 15px;
 
 }
+#error_txt_recibirlo{
+    color: red;
+    font-size: 13px;
+}
+#error_txt_solo_imagenes{
+    color: red;
+    font-size: 13px;
+}
+#error_txt_5_megas{
+    color: red;
+    font-size: 13px;
+}
 #error1, #error2, #error3{
     color: red;
     font-size: 13px;
