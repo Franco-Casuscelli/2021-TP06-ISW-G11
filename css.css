@@ -509,6 +509,22 @@ footer{
 #btn_ubiEsp:active{
     border-color: #dddddd;
 }
+
+
+#btn_ubiEsp:hover, a.btnAzul:focus{
+    border-color: #dddddd;
+}
+     
+#btn_ubiEsp:active{
+    border-color: #dddddd;
+}
+#btn_ubiAct:hover, a.btnAzul:focus{
+    border-color: #dddddd;
+}
+     
+#btn_ubiAct:active{
+    border-color: #dddddd;
+}
 #btn_ubiAct{
     margin-top: 10px;
     width: 48%;
@@ -532,7 +548,7 @@ footer{
     margin-bottom: 10px;
 }
 
-#errorCalleC, #errorNumeroC, #errorCiudadC{
+#errorCalleC, #errorNumeroC, #errorCiudadC, #error_txt_tarjetas{
     color: red;
     font-size: 13px;
 }
