@@ -1,5 +1,6 @@
 
 $( document ).ready(function() {
+    document.getElementById('map').style.display = 'none';
     document.getElementById("error_txt_pedido").style.display = 'none';
     document.getElementById("error_txt_comercio").style.display = 'none';
     document.getElementById("error_txt_entrega").style.display = 'none';
@@ -9,7 +10,7 @@ $( document ).ready(function() {
     document.getElementById("error_txt_5_megas").style.display = 'none';
     document.getElementById("error_txt_recibirlo").style.display = 'none';
     document.getElementById("error_txt_tarjetas").style.display = 'none';
-    document.getElementById('map').style.display = 'none';
+    
 });
 
 var pagoSeleccionado;
