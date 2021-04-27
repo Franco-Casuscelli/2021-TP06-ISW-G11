@@ -374,11 +374,9 @@ function validar(){
             
             if(num_tarjeta == "" || n_a_titular == "" || cod_seg == "" || fecha_venc == ""){
                 document.getElementById("error_txt_tarjetas").style.display = 'block';
+                return
             }
-
             
-            
-            return
 
         }
     }
