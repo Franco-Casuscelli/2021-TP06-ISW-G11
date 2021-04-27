@@ -145,7 +145,7 @@
     margin-bottom: 10px;
 }
 #lbl_secciones{
-    font-size: 14px;
+    font-size: 18px;
 }
 #intro{
     font-size: 14px;
@@ -153,9 +153,17 @@
 #espacio_btn_final{
     margin-bottom: 60px;
 }
+#iconss{
+    position: relative;
+
+    color: #acacac;
+}
+
+
+
 #icons{
     position: relative;
-    top:18px;
+    top: 18px;
     color: #acacac;
 }
 #icons2{
@@ -184,7 +192,6 @@
     padding: 7px;
     background-color: #1f1e1e;
     margin-top: 10px;
-    margin-bottom: 10px;
     font-size: 14px;
     color: #acacac;
     border-radius: 3px;
@@ -224,7 +231,7 @@
     width: 90%;
     border-color: #1f1e1e;
     border: none !important;
-    border: 0px
+    border: 0px;
 }
 #select1{
     width: 90%;
@@ -249,6 +256,12 @@
     border: none !important;
 }
 
+#espacido.form-group{
+    width: 100%;
+    }
+    #espgacio.form-group{
+        width: 100%;
+        }
 /*
 .form-select{
     width: 100%;
@@ -483,13 +496,31 @@ footer{
     margin-bottom: 10px;
 }
 
-#btn_ubiEsp, #btn_ubiAct{
+#btn_ubiEsp{
+    margin-top: 10px;
     width: 48%;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     background-color: #242424;
     border-color: #242424;
     margin-bottom: 5px;
+
+}
+#btn_ubiEsp:active{
+    border-color: #dddddd;
+}
+#btn_ubiAct{
+    margin-top: 10px;
+    width: 48%;
+    margin-left: 6px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #242424;
+    border-color: #242424;
+    margin-bottom: 5px;
+}
+#btn_ubiAct:active{
+    border-color: #dddddd;
 }
 
 #calleComercio,#numeroComercio,#ciudadComercio, #referenciaComercio{

@@ -77,8 +77,8 @@
                     <!--<button type="button" class="btnMap" onclick="ubicacionActual()">Seleccionar ubicación actual</button>-->
 
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <div id="btn_ubiEsp" onclick="ubicacionEspecifica()">Ubicación específica</div>
-                        <div id="btn_ubiAct" onclick="ubicacionActual()">Ubicación actual</div>
+                        <div id="btn_ubiEsp" class="ng-pristine ng-untouched ng-valid ng-empty btn btn-secondary" onclick="ubicacionEspecifica()">Ubicación específica</div>
+                        <div id="btn_ubiAct" class="ng-pristine ng-untouched ng-valid ng-empty btn btn-secondary" onclick="ubicacionActual()">Ubicación en el mapa</div>
                     </div>
                 
                     <div id="map">
@@ -88,10 +88,7 @@
 
                     <div class="formulario__grupo" id="grupo__calle_comercio">
                         <div class="formulario__grupo-input">
-                            <span class="input-group-addon">
-                                <i class="fas fa-road" id="icons"></i>
-                            </span>
-        
+                                <i class="fas fa-road" id="iconss"></i>
                             <input type="text" class="form_input" name="calleComercio" id="calleComercio" placeholder="Calle">
                         </div>
                         <p class="formulario__input-error" id="errorCalleC">Debe ingresar entre 3 y 30 letras y/o números</p>
@@ -115,6 +112,9 @@
                                 <option> Cordoba</option>
                                 <option> Rio Ceballos</option>
                                 <option> Carlos Paz</option>
+                                <option> Cosquín</option>
+                                <option> Oncativo</option>
+                                <option> Villa Allende</option>
                               </select>
                         <label id="error_txt_ciudad">Debe seleccionar la ciudad</label>
                     </div>
@@ -141,14 +141,14 @@
             <label for="txt_direccion_entrega" id="lbl_secciones">Dirección de entrega</label>
             <div id="bordes">
                 <div class="input-group">
-                    <span class="input-group-addon">
-                        <i class="fas fa-road" id="icons"></i>
-                    </span>
+                    
 
                     
                     <div class="formulario__grupo" id="grupo__calle">
                         <div class="formulario__grupo-input">
-                            
+                            <span class="input-group-addon">
+                                <i class="fas fa-road" id="iconsd"></i>
+                            </span>
                             <input type="text" class="formulario__input" name="calle" id="calle" placeholder="Calle">
                             <i class="formulario__validacion-estado fas fa-times-circle"></i>
                         </div>
@@ -175,6 +175,9 @@
                                 <option> Cordoba</option>
                                 <option> Rio Ceballos</option>
                                 <option> Carlos Paz</option>
+                                <option> Cosquín</option>
+                                <option> Oncativo</option>
+                                <option> Villa Allende</option>
                               </select>
                         <label id="error_txt_ciudad1">Debe seleccionar la ciudad</label>
                     </div>
