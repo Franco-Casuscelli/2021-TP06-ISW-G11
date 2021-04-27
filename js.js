@@ -9,7 +9,9 @@ $( document ).ready(function() {
     document.getElementById("error_txt_solo_imagenes").style.display = 'none';
     document.getElementById("error_txt_5_megas").style.display = 'none';
     document.getElementById("error_txt_recibirlo").style.display = 'none';
-    document.getElementById("error_txt_tarjetas").style.display = 'none';
+    //document.getElementById("error_txt_tarjetas").style.display = 'none';
+    document.getElementById("error_txt_hora").style.display = 'none';
+    
     
 });
 
@@ -254,7 +256,10 @@ function ubicacionEspecifica(){
     flag = true;
 }
 
-    
+function desaparecerAlerta(){
+    document.getElementById("pedido_enviado").style.display = 'none';
+    return
+}
 
 function validar(){
     
@@ -272,7 +277,7 @@ function validar(){
         document.getElementById("error_pagoElegido").style.display = 'none';
         document.getElementById("error_txt_recibirlo").style.display = 'none';
         document.getElementById("error_txt_ciudad1").style.display = 'none';
-        document.getElementById("error_txt_tarjetas").style.display = 'none';
+        //document.getElementById("error_txt_tarjetas").style.display = 'none';
         return
     }
 
@@ -354,7 +359,7 @@ function validar(){
             document.getElementById("error_pagoElegido").style.display = 'none';
             document.getElementById("error_txt_efectivo").style.display = 'none';
             document.getElementById("error_txt_ciudad1").style.display = 'none';
-            document.getElementById("error_txt_tarjetas").style.display = 'none';
+            //document.getElementById("error_txt_tarjetas").style.display = 'none';
             document.getElementById("error_txt_efectivo_negativo").style.display = 'none';
             
  
@@ -401,7 +406,7 @@ function validar(){
         }
     }
     
-    if(fecha_pedido == '' && document.querySelector('#btn_antes_posible').checked === false){
+    if(fecha_pedido === '' && document.querySelector('#btn_antes_posible').checked === false){
         document.getElementById("error_txt_recibirlo").style.display = 'block';
         
         document.getElementById("error_txt_ciudad").style.display = 'none';
@@ -414,14 +419,23 @@ function validar(){
         return
     }
 
+    if(fecha_pedido !== '' && document.querySelector('#btn_antes_posible').checked === false && document.getElementById("hora_pedido").value === '' ){
+        document.getElementById("error_txt_hora").style.display = 'block';
+        return
+    }
+
     document.getElementById("error_txt_recibirlo").style.display = 'none';
     document.getElementById("error_txt_pedido").style.display = 'none';
     document.getElementById("error_txt_comercio").style.display = 'none';
     document.getElementById("error_txt_entrega").style.display = 'none';
     document.getElementById("error_txt_ciudad").style.display = 'none';
     document.getElementById("error_txt_ciudad1").style.display = 'none';
-    document.getElementById("error_txt_tarjetas").style.display = 'none';
+    //document.getElementById("error_txt_tarjetas").style.display = 'none';
+    document.getElementById("error_txt_hora").style.display = 'none';
 
-    alert("Pedido enviado con exito")
+    document.getElementById("pedido_enviado").style.display = 'block';
+    document.formLoQueSea.reset();
+    setTimeout('desaparecerAlerta()',3000);
+    
 
 }
