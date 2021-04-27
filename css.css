@@ -193,24 +193,7 @@
     padding: 2px;
     color:#DDDDDD;
 }
-#select1, #select{
-    width:auto;
-    padding: 7px;
-    background-color: #1f1e1e;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 14px;
-    color: #acacac;
-    border-radius: 3px;
-}
-#select1 option{
-    padding: 2px;
-    color:#DDDDDD;
-}
-#select option{
-    padding: 2px;
-    color:#DDDDDD;
-}
+
 
 
 
@@ -243,11 +226,25 @@
     border: none !important;
     border: 0px
 }
+#select1{
+    width: 90%;
+    border-color: #1f1e1e;
+    border: none !important;
+    border: 0px
+}
 #select:active{
     border-color: #1f1e1e;
     border: none !important;
 }
 #select:hover{
+    border-color: #1f1e1e;
+    border: none !important;
+}
+#select1:active{
+    border-color: #1f1e1e;
+    border: none !important;
+}
+#select1:hover{
     border-color: #1f1e1e;
     border: none !important;
 }
@@ -330,7 +327,12 @@ footer{
     height: 45px;
     padding: 0 40px 0 10px;
 }
-
+.form_input{
+    width: 100%;
+    border: 3px solid transparent;
+    height: 45px;
+    padding: 0 40px 0 10px;
+}
 .formulario__validacion-estado{
     position: absolute;
     right: 10px;
@@ -439,6 +441,10 @@ footer{
 }
 
 #error_txt_ciudad{
+    color: red;
+    font-size: 13px;
+}
+#error_txt_ciudad1{
     color: red;
     font-size: 13px;
 }

@@ -4,6 +4,7 @@ $( document ).ready(function() {
     document.getElementById("error_txt_comercio").style.display = 'none';
     document.getElementById("error_txt_entrega").style.display = 'none';
     document.getElementById("error_txt_ciudad").style.display = 'none';
+    document.getElementById("error_txt_ciudad1").style.display = 'none';
     document.getElementById("error_txt_solo_imagenes").style.display = 'none';
     document.getElementById("error_txt_5_megas").style.display = 'none';
     document.getElementById("error_txt_recibirlo").style.display = 'none';
@@ -23,72 +24,7 @@ function procesarclickTarjeta(){
     formaPago = "T";
 }
 
-var select = document.getElementById("select"),
-                     arr = [
-                        "Almafuerte","Alta gracia","Arroyito","Bell ville","Capilla del monte", 
-                        "Colonia caroya","Cosquín","Cruz del eje","Córdoba","Deán funes","Estación",
-                        "General cabrera","General deheza","Jesús maría","Juárez celman",
-                        "La calera","La carlota","La falda","Laboulaye","Las varillas","Malagueño",
-                        "Malvinas argentinas","Marcos juárez","Morteros","Oliva","Oncativo","Pilar",
-                        "Río ceballos","Río cuarto","Río segundo","Río tercero","Saldán","San francisco",
-                        "Santa rosa de calamuchita","Unquillo","Villa allende","Villa carlos paz",
-                        "Villa del rosario","Villa dolores","Villa maría","Villa nueva"
-                        ];
-             
-             for(var i = 0; i < arr.length; i++)
-             {
-                 var option = document.createElement("OPTION"),
-                     txt = document.createTextNode(arr[i]);
-                 option.appendChild(txt);
-                 option.setAttribute("value",arr[i]);
-                 select.insertBefore(option,select.lastChild);
-             }
 
-             var element = document.querySelector('select');
-
-             element.addEventListener('mousedown', function () {
-                 this.size=8;
-             });
-             console.log(element)
-             element.addEventListener('change', function () {
-                 this.blur();
-             });
-             element.addEventListener('blur', function () {
-                 this.size=0;
-             });
-
-             var select1 = document.getElementById("select1"),
-                     arrr = [
-                        "Almafuerte","Alta gracia","Arroyito","Bell ville","Capilla del monte", 
-                        "Colonia caroya","Cosquín","Cruz del eje","Córdoba","Deán funes","Estación",
-                        "General cabrera","General deheza","Jesús maría","Juárez celman",
-                        "La calera","La carlota","La falda","Laboulaye","Las varillas","Malagueño",
-                        "Malvinas argentinas","Marcos juárez","Morteros","Oliva","Oncativo","Pilar",
-                        "Río ceballos","Río cuarto","Río segundo","Río tercero","Saldán","San francisco",
-                        "Santa rosa de calamuchita","Unquillo","Villa allende","Villa carlos paz",
-                        "Villa del rosario","Villa dolores","Villa maría","Villa nueva"
-                        ];
-             
-             for(var i = 0; i < arrr.length; i++)
-             {
-                 var option1 = document.createElement("OPTION"),
-                     txt1 = document.createTextNode(arrr[i]);
-                 option1.appendChild(txt1);
-                 option1.setAttribute("value",arrr[i]);
-                 select1.insertBefore(option1,select1.lastChild);
-             }
-             var element = document.querySelector('select1');
-
-             element.addEventListener('mousedown', function () {
-                 this.size=8;
-             });
-             console.log(element)
-             element.addEventListener('change', function () {
-                 this.blur();
-             });
-             element.addEventListener('blur', function () {
-                 this.size=0;
-             });
              
 
 
@@ -403,6 +339,7 @@ function validar(){
     var fecha_pedido = document.getElementById('fecha_pedido').value;
     //var txt_direccion_entrega = document.getElementById('txt_direccion_entrega').value;
     var select = document.getElementById('select').value;
+    var select1 = document.getElementById('select1').value;
 
     if(txt_pedido == ''){
         document.getElementById("error_txt_pedido").style.display = 'block';
@@ -427,8 +364,10 @@ function validar(){
         return
     }
     */
-
-    if(campos.calleComercio == false || campos.numeroComercio == false){
+/*
+    if(camposComercio.calleComercio == false || camposComercio.numeroComercio == false){
+        alert(camposComercio.calleComercio);
+        alert(camposComercio.numeroComercio);
         document.getElementById("error_txt_entrega").style.display = 'none';
         document.getElementById("error_txt_comercio").style.display = 'block';
         document.getElementById("error_txt_pedido").style.display = 'none';
@@ -436,6 +375,18 @@ function validar(){
         document.getElementById("error_pagoElegido").style.display = 'none';
         document.getElementById("error_txt_recibirlo").style.display = 'none';
         document.getElementById("error_txt_ciudad1").style.display = 'none';
+        return
+    }
+    */
+    if(select == ''){
+        document.getElementById("error_txt_ciudad").style.display = 'block';
+
+        document.getElementById("error_txt_ciudad1").style.display = 'none';
+        document.getElementById("error_txt_entrega").style.display = 'none';
+        document.getElementById("error_txt_comercio").style.display = 'none';
+        document.getElementById("error_txt_pedido").style.display = 'none';
+        document.getElementById("error_pagoElegido").style.display = 'none';
+        document.getElementById("error_txt_recibirlo").style.display = 'none';
         return
     }
 
@@ -451,23 +402,11 @@ function validar(){
         document.getElementById("error_txt_ciudad1").style.display = 'none';
         return
     }
-    
+
     if(select1 == ''){
         document.getElementById("error_txt_ciudad1").style.display = 'block';
 
         document.getElementById("error_txt_ciudad").style.display = 'none';
-        document.getElementById("error_txt_entrega").style.display = 'none';
-        document.getElementById("error_txt_comercio").style.display = 'none';
-        document.getElementById("error_txt_pedido").style.display = 'none';
-        document.getElementById("error_pagoElegido").style.display = 'none';
-        document.getElementById("error_txt_recibirlo").style.display = 'none';
-        return
-    }
-
-    if(select == ''){
-        document.getElementById("error_txt_ciudad").style.display = 'block';
-
-        document.getElementById("error_txt_ciudad1").style.display = 'none';
         document.getElementById("error_txt_entrega").style.display = 'none';
         document.getElementById("error_txt_comercio").style.display = 'none';
         document.getElementById("error_txt_pedido").style.display = 'none';
