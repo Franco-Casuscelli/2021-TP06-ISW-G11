@@ -1,5 +1,6 @@
 
 $( document ).ready(function() {
+    document.getElementById('map').style.display = 'none';
     document.getElementById("error_txt_pedido").style.display = 'none';
     document.getElementById("error_txt_comercio").style.display = 'none';
     document.getElementById("error_txt_entrega").style.display = 'none';
@@ -9,7 +10,6 @@ $( document ).ready(function() {
     document.getElementById("error_txt_5_megas").style.display = 'none';
     document.getElementById("error_txt_recibirlo").style.display = 'none';
     document.getElementById("error_txt_tarjetas").style.display = 'none';
-    document.getElementById('map').style.display = 'none';
 });
 
 var pagoSeleccionado;
@@ -26,67 +26,52 @@ function procesarclickTarjeta(){
 }
 
 
-             
 
+ //Deshabitilar y Habilitar input radio button 
 
-             // para la segunda opcion lo unico que hay q hacer es quitar desde la linea 21 a la 31
+function deshabilitarInput(){
+    if(document.querySelector('#fecha_pedido').value !== '' || document.querySelector('#hora_pedido').value !== ''  ){
+        document.querySelector('#btn_antes_posible').disabled = true; 
+    } else{
+        document.querySelector('#btn_antes_posible').disabled = false;
+        if(document.querySelector('#btn_antes_posible').checked === true){
+            document.querySelector('#fecha_pedido').disabled = true;
+            document.querySelector('#hora_pedido').disabled = true;
+            document.querySelector('#hora_pedido').value = '';
+            document.querySelector('#fecha_pedido').value = '';
+            document.querySelector('#fecha_pedido').style.cursor= 'auto';
+            document.querySelector('#hora_pedido').style.cursor= 'auto';
+        }
+        else{
+            document.querySelector('#hora_pedido').disabled = false;
+            document.querySelector('#fecha_pedido').disabled = false;
+            document.querySelector('#fecha_pedido').style.cursor= 'text';
+            document.querySelector('#hora_pedido').style.cursor= 'text';    
+        }
+    }
+}
 
-             //Deshabitilar y Habilitar input radio button 
-            
-             function deshabilitarInput(){
-             if(document.querySelector('#fecha_pedido').value !== '' || document.querySelector('#hora_pedido').value !== ''  ){
-                 document.querySelector('#btn_antes_posible').disabled = true;
-              
-             }
-             else{
-                document.querySelector('#btn_antes_posible').disabled = false;
-                if(document.querySelector('#btn_antes_posible').checked === true){
-                    document.querySelector('#fecha_pedido').disabled = true;
-                    document.querySelector('#hora_pedido').disabled = true;
-                    document.querySelector('#hora_pedido').value = '';
-                    document.querySelector('#fecha_pedido').value = '';
-                    document.querySelector('#fecha_pedido').style.cursor= 'auto';
-                    document.querySelector('#hora_pedido').style.cursor= 'auto';
-
-
-                }
-                else{
-                    document.querySelector('#hora_pedido').disabled = false;
-                    document.querySelector('#fecha_pedido').disabled = false;
-                    document.querySelector('#fecha_pedido').style.cursor= 'text';
-                    document.querySelector('#hora_pedido').style.cursor= 'text';
-
-                    
-                }
-             }
-            }
-
-            // VALIDACION IMAGEN
-            const MAXIMO_TAMANIO_BYTES = 5000000; // 5MB         
-            const $imagen = document.querySelector("#imagen");
-            $imagen.addEventListener("change", function () {
-                if (this.files.length <= 0) return;
-                const archivo = this.files[0];
-                var nombreArchivo = document.getElementById("imagen").value;
-                var idxDot = nombreArchivo.lastIndexOf(".") + 1;
-                var extFile = nombreArchivo.substr(idxDot, nombreArchivo.length).toLowerCase();
-                    document.getElementById("error_txt_solo_imagenes").style.display = 'none';
-                    document.getElementById("error_txt_5_megas").style.display = 'none';
-                if (extFile=="jpg"){
-
-                    if (archivo.size > MAXIMO_TAMANIO_BYTES) {
-
-                        document.getElementById("error_txt_5_megas").style.display = 'block';
-                        $imagen.value = "";}
-                    
-                }else{
-                    document.getElementById("error_txt_solo_imagenes").style.display = 'block';
-                    $imagen.value = "";
-                }      
-                
-                
-                
-            });
+// VALIDACION IMAGEN
+const MAXIMO_TAMANIO_BYTES = 5000000; // 5MB         
+const $imagen = document.querySelector("#imagen");
+$imagen.addEventListener("change", function () {
+    if (this.files.length <= 0) return;
+    const archivo = this.files[0];
+    var nombreArchivo = document.getElementById("imagen").value;
+    var idxDot = nombreArchivo.lastIndexOf(".") + 1;
+    var extFile = nombreArchivo.substr(idxDot, nombreArchivo.length).toLowerCase();
+        document.getElementById("error_txt_solo_imagenes").style.display = 'none';
+        document.getElementById("error_txt_5_megas").style.display = 'none';
+    if (extFile=="jpg"){
+        if (archivo.size > MAXIMO_TAMANIO_BYTES) {
+            document.getElementById("error_txt_5_megas").style.display = 'block';
+            $imagen.value = "";
+        }                    
+    }else{
+        document.getElementById("error_txt_solo_imagenes").style.display = 'block';
+        $imagen.value = "";
+    }
+});
 
 
 
