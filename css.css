@@ -444,3 +444,37 @@ footer{
     margin-left: 10px; 
 }
 
+#map{
+    width: 100%;
+    height: 500px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#datos_comercio{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#btn_ubiEsp, #btn_ubiAct{
+    width: 48%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #242424;
+    border-color: #242424;
+    margin-bottom: 5px;
+}
+
+#calleComercio,#numeroComercio,#ciudadComercio, #referenciaComercio{
+    width: 90%;
+    color: #acacac;
+    background-color: #1f1e1e;
+    border-color: #1f1e1e;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#errorCalleC, #errorNumeroC, #errorCiudadC{
+    color: red;
+    font-size: 13px;
+}
