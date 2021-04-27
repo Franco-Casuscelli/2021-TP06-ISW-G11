@@ -43,17 +43,54 @@ var select = document.getElementById("select"),
                  option.setAttribute("value",arr[i]);
                  select.insertBefore(option,select.lastChild);
              }
+
              var element = document.querySelector('select');
 
              element.addEventListener('mousedown', function () {
                  this.size=8;
              });
+             console.log(element)
              element.addEventListener('change', function () {
                  this.blur();
              });
              element.addEventListener('blur', function () {
                  this.size=0;
              });
+
+             var select1 = document.getElementById("select1"),
+                     arrr = [
+                        "Almafuerte","Alta gracia","Arroyito","Bell ville","Capilla del monte", 
+                        "Colonia caroya","Cosquín","Cruz del eje","Córdoba","Deán funes","Estación",
+                        "General cabrera","General deheza","Jesús maría","Juárez celman",
+                        "La calera","La carlota","La falda","Laboulaye","Las varillas","Malagueño",
+                        "Malvinas argentinas","Marcos juárez","Morteros","Oliva","Oncativo","Pilar",
+                        "Río ceballos","Río cuarto","Río segundo","Río tercero","Saldán","San francisco",
+                        "Santa rosa de calamuchita","Unquillo","Villa allende","Villa carlos paz",
+                        "Villa del rosario","Villa dolores","Villa maría","Villa nueva"
+                        ];
+             
+             for(var i = 0; i < arrr.length; i++)
+             {
+                 var option1 = document.createElement("OPTION"),
+                     txt1 = document.createTextNode(arrr[i]);
+                 option1.appendChild(txt1);
+                 option1.setAttribute("value",arrr[i]);
+                 select1.insertBefore(option1,select1.lastChild);
+             }
+             var element = document.querySelector('select1');
+
+             element.addEventListener('mousedown', function () {
+                 this.size=8;
+             });
+             console.log(element)
+             element.addEventListener('change', function () {
+                 this.blur();
+             });
+             element.addEventListener('blur', function () {
+                 this.size=0;
+             });
+             
+
 
              // para la segunda opcion lo unico que hay q hacer es quitar desde la linea 21 a la 31
 
@@ -205,11 +242,11 @@ const inputComercio = document.querySelectorAll('#formulario input');
 const camposComercio = {
     calleComercio: false,
     numeroComercio: false,
-    ciudadComercio: false
+    //ciudadComercio: false
 }
 const expresionesComercio = {
     calleComercio: /^[a-zA-Z0-9\s]{3,30}$/, // Letras, numeros, guion y guion_bajo
-    ciudadComercio: /^[a-zA-ZÀ-ÿ\s]{3,20}$/, // Letras y espacios, pueden llevar acentos.
+    //ciudadComercio: /^[a-zA-ZÀ-ÿ\s]{3,20}$/, // Letras y espacios, pueden llevar acentos.
     numeroComercio: /^\d{1,5}$/ // 1 a 5 numeros.
 }
 
@@ -223,9 +260,9 @@ const validarFormularioComercio = (e) => {
             validarCampoComercio(expresionesComercio.numeroComercio, e.target, 'numero_comercio');
         break;
 
-        case "ciudadComercio":
-            validarCampoComercio(expresionesComercio.ciudadComercio, e.target, 'ciudad_comercio');
-        break;
+        //case "ciudadComercio":
+          //  validarCampoComercio(expresionesComercio.ciudadComercio, e.target, 'ciudad_comercio');
+        //break;
     }
 }
 
@@ -375,6 +412,7 @@ function validar(){
         document.getElementById("error_txt_ciudad").style.display = 'none';
         document.getElementById("error_pagoElegido").style.display = 'none';
         document.getElementById("error_txt_recibirlo").style.display = 'none';
+        document.getElementById("error_txt_ciudad1").style.display = 'none';
         return
     }
     /*
@@ -390,18 +428,19 @@ function validar(){
     }
     */
 
-    if(campos.calleComercio == false || campos.numeroComercio == false || campos.ciudadComercio == false){
+    if(campos.calleComercio == false || campos.numeroComercio == false){
         document.getElementById("error_txt_entrega").style.display = 'none';
         document.getElementById("error_txt_comercio").style.display = 'block';
         document.getElementById("error_txt_pedido").style.display = 'none';
         document.getElementById("error_txt_ciudad").style.display = 'none';
         document.getElementById("error_pagoElegido").style.display = 'none';
         document.getElementById("error_txt_recibirlo").style.display = 'none';
+        document.getElementById("error_txt_ciudad1").style.display = 'none';
         return
     }
 
     
-    if(campos.calle == false || campos.numero == false || campos.ciudad == false){
+    if(campos.calle == false || campos.numero == false){
         document.getElementById("error_txt_entrega").style.display = 'block';
 
         document.getElementById("error_txt_comercio").style.display = 'none';
@@ -409,13 +448,26 @@ function validar(){
         document.getElementById("error_txt_ciudad").style.display = 'none';
         document.getElementById("error_pagoElegido").style.display = 'none';
         document.getElementById("error_txt_recibirlo").style.display = 'none';
+        document.getElementById("error_txt_ciudad1").style.display = 'none';
         return
     }
     
-    
+    if(select1 == ''){
+        document.getElementById("error_txt_ciudad1").style.display = 'block';
+
+        document.getElementById("error_txt_ciudad").style.display = 'none';
+        document.getElementById("error_txt_entrega").style.display = 'none';
+        document.getElementById("error_txt_comercio").style.display = 'none';
+        document.getElementById("error_txt_pedido").style.display = 'none';
+        document.getElementById("error_pagoElegido").style.display = 'none';
+        document.getElementById("error_txt_recibirlo").style.display = 'none';
+        return
+    }
+
     if(select == ''){
         document.getElementById("error_txt_ciudad").style.display = 'block';
 
+        document.getElementById("error_txt_ciudad1").style.display = 'none';
         document.getElementById("error_txt_entrega").style.display = 'none';
         document.getElementById("error_txt_comercio").style.display = 'none';
         document.getElementById("error_txt_pedido").style.display = 'none';
@@ -433,6 +485,7 @@ function validar(){
         document.getElementById("error_txt_comercio").style.display = 'none';
         document.getElementById("error_txt_pedido").style.display = 'none';  
         document.getElementById("error_txt_recibirlo").style.display = 'none';
+        document.getElementById("error_txt_ciudad1").style.display = 'none';
         return
 
     }
@@ -444,6 +497,7 @@ function validar(){
             document.getElementById("error_txt_pedido").style.display = 'none';
             document.getElementById("error_pagoElegido").style.display = 'none';
             document.getElementById("error_txt_efectivo").style.display = 'none';
+            document.getElementById("error_txt_ciudad1").style.display = 'none';
 
             document.getElementById("error_txt_efectivo_negativo").style.display = 'none';
             
@@ -469,6 +523,7 @@ function validar(){
             document.getElementById("error_txt_pedido").style.display = 'none';
             document.getElementById("error_pagoElegido").style.display = 'none';
             document.getElementById("error_txt_recibirlo").style.display = 'none';
+            document.getElementById("error_txt_ciudad1").style.display = 'none';
             return
 
         }
@@ -482,15 +537,17 @@ function validar(){
         document.getElementById("error_txt_comercio").style.display = 'none';
         document.getElementById("error_txt_pedido").style.display = 'none';
         document.getElementById("error_pagoElegido").style.display = 'none';
+        document.getElementById("error_txt_ciudad1").style.display = 'none';
         return
     }
     
 
     document.getElementById("error_txt_recibirlo").style.display = 'none';
     document.getElementById("error_txt_pedido").style.display = 'none';
-    Sdocument.getElementById("error_txt_comercio").style.display = 'none';
+    document.getElementById("error_txt_comercio").style.display = 'none';
     document.getElementById("error_txt_entrega").style.display = 'none';
     document.getElementById("error_txt_ciudad").style.display = 'none';
+    document.getElementById("error_txt_ciudad1").style.display = 'none';
 
 
 

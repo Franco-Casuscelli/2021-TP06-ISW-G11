@@ -108,18 +108,13 @@
                         <p class="formulario__input-error" id="errorNumeroC">Solo se permiten números de 1 a 5 dígitos </p>
                     </div>
                     
-
-                    <div class="formulario__grupo" id="grupo__ciudad_comercio">
-                        <div class="formulario__grupo-input">
-                            <span class="input-group-addon">
-                                <i class="fas fa-building" id="icons2"></i>
-                            </span>
-    
-                            <input type="text" class="form_input" name="ciudadComercio" id="ciudadComercio" placeholder="Ciudad">
-                        </div>
-                        <p class="formulario__input-error" id="errorCiudadC">Solo se permiten letras entre 3 y 20 dígitos</p>
+                    <div class="form-group" id="espacio">
+                        <i class="fas fa-globe" id="globe"></i>
+                            <select   id="select" >
+                                <option  value="" hidden  >Seleccionar Ciudad...</option>
+                              </select>
+                        <label id="error_txt_ciudad">Debe seleccionar la ciudad</label>
                     </div>
-                    
 
                     <div class="formulario__grupo" id="grupo__referencia_comercio">
                         <div class="formulario__grupo-input">
@@ -170,16 +165,12 @@
                         <p class="formulario__input-error" id="error2">Solo se permiten números de 1 a 5 dígitos </p>
                     </div>
 
-                    
-                    <div class="formulario__grupo" id="grupo__ciudad">
-                        <div class="formulario__grupo-input">
-                            <span class="input-group-addon">
-                                <i class="fas fa-building" id="icons2"></i>
-                            </span>
-                            <input type="text" class="formulario__input" name="ciudad" id="ciudad" placeholder="Ciudad">
-                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                        </div>
-                        <p class="formulario__input-error" id="error3">Solo se permiten letras entre 3 y 20 dígitos</p>
+                    <div class="form-group" id="espacio">
+                        <i class="fas fa-globe" id="globe"></i>
+                            <select   id="select1" >
+                                <option  value="" hidden  >Seleccionar Ciudad...</option>
+                              </select>
+                        <label id="error_txt_ciudad1">Debe seleccionar la ciudad</label>
                     </div>
 
                    
@@ -206,16 +197,7 @@
         </div>
         <!-- ---------------------------------------------------- -->
 
-        <div class="form-group" id="espacio">
-            <label for="selc_ciudades" id="lbl_secciones">Ciudad</label>
-            <div id="bordes">
-                <i class="fas fa-globe" id="globe"></i>
-                <select   id="select" class="container">
-                    <option  value="" hidden  >Seleccionar Ciudad...</option>
-                  </select>
-            </div>
-            <label id="error_txt_ciudad">Debe seleccionar la ciudad</label>
-        </div>
+
 
 
             <div class="form-group" id="espacio">

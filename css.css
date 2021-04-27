@@ -193,6 +193,27 @@
     padding: 2px;
     color:#DDDDDD;
 }
+#select1, #select{
+    width:auto;
+    padding: 7px;
+    background-color: #1f1e1e;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #acacac;
+    border-radius: 3px;
+}
+#select1 option{
+    padding: 2px;
+    color:#DDDDDD;
+}
+#select option{
+    padding: 2px;
+    color:#DDDDDD;
+}
+
+
+
 #fecha_pedido{
     background-color: #1f1e1e;
     border: none;
