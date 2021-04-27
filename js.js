@@ -87,152 +87,62 @@ function procesarclickTarjeta(){
                 
             });
 
-            
-
-    /* Nahuel - Direccion de entrega */
-    const formulario = document.getElementById('formulario');
-    const inputs = document.querySelectorAll('#formulario input');
-
-    const campos = {
-        calle: false,
-        numero: false,
-        ciudad: false
-    }
-
-    const expresiones = {
-        calle: /^[a-zA-Z0-9\s]{3,30}$/, // Letras, numeros, guion y guion_bajo
-        ciudad: /^[a-zA-ZÀ-ÿ\s]{3,20}$/, // Letras y espacios, pueden llevar acentos.
-        numero: /^\d{1,5}$/ // 1 a 5 numeros.
-    }
-
-    const validarFormulario = (e) => {
-        switch(e.target.name) {
-            case "calle":
-                validarCampo(expresiones.calle, e.target, 'calle');
-            break;
-
-            case "numero":
-                validarCampo(expresiones.numero, e.target, 'numero');
-            break;
-
-            case "ciudad":
-                validarCampo(expresiones.ciudad, e.target, 'ciudad');
-            break;
-        }
-    }
-
-    const validarCampo = (expresion, input, campo) =>{
-        if(expresion.test(input.value)){
-            document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
-            document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-correcto');
-            
-            document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
-            campos[campo] = true;
-        }
-        else{
-            document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
-            document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-correcto');
-            
-            document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
-            campos[campo] = false;
-        }
-    }
-
-    inputs.forEach((input) => {
-        input.addEventListener('keyup', validarFormulario);
-        input.addEventListener('blur', validarFormulario);
-    });
-
-    function tomarDatosDomicilio(){
-        const completo = "Dirección de entrega";
-        const calle_ = document.getElementById("calle").value;
-        const numero_ = document.getElementById("numero").value;
-        const ciudad_ = document.getElementById("ciudad").value;
-
-        completo = calle_ + " " + numero_ + " " + ciudad_;
-
-        document.write(completo);
-    }
-
- /*   formulario.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        if(campos.calle == false || campos.numero == false || campos.ciudad ==false){
-            document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
-        }
-        else{
-            formulario.reset();
-            document.getElementById('formulario__mensaje').classList.remove('formulario__mensaje-activo');
-            document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) =>{
-                icono.classList.remove('formulario__grupo-correcto');
-            });
-        }
-    })
-*/
 
 
+//Validación de direcciones
+const expresiones = {
+    calle: /^[a-zA-Z0-9\s]{3,30}$/, // Letras, numeros, guion y guion_bajo
+    numero: /^\d{1,5}$/,             // 1 a 5 numeros.
+    calleComercio: /^[a-zA-Z0-9\s]{3,30}$/, // Letras, numeros, guion y guion_bajo
+    numeroComercio: /^\d{1,5}$/             // 1 a 5 numeros.
+}
 
-//--- Validaciones comercio
-const formularioComercio = document.getElementById('formulario');
-const inputComercio = document.querySelectorAll('#formulario input');
-const camposComercio = {
+const formulario = document.getElementById('formulario');
+const inputs = document.querySelectorAll('#formulario input');
+
+const campos = {
+    calle: false,
+    numero: false,
     calleComercio: false,
     numeroComercio: false,
-    //ciudadComercio: false
-}
-const expresionesComercio = {
-    calleComercio: /^[a-zA-Z0-9\s]{3,30}$/, // Letras, numeros, guion y guion_bajo
-    //ciudadComercio: /^[a-zA-ZÀ-ÿ\s]{3,20}$/, // Letras y espacios, pueden llevar acentos.
-    numeroComercio: /^\d{1,5}$/ // 1 a 5 numeros.
 }
 
-const validarFormularioComercio = (e) => {
+const validarFormulario = (e) => {    
     switch(e.target.name) {
+        case "calle":
+            validarCampo(expresiones.calle, e.target, 'calle');
+        break;
+        case "numero":
+            validarCampo(expresiones.numero, e.target, 'numero');
+        break;
         case "calleComercio":
-            validarCampoComercio(expresionesComercio.calleComercio, e.target, 'calle_comercio');
+            validarCampo(expresiones.calleComercio, e.target, 'calleComercio');
         break;
-
         case "numeroComercio":
-            validarCampoComercio(expresionesComercio.numeroComercio, e.target, 'numero_comercio');
+            validarCampo(expresiones.numeroComercio, e.target, 'numeroComercio');
         break;
-
-        //case "ciudadComercio":
-          //  validarCampoComercio(expresionesComercio.ciudadComercio, e.target, 'ciudad_comercio');
-        //break;
     }
 }
 
-const validarCampoComercio = (expresion, input, campo) =>{
+const validarCampo = (expresion, input, campo) =>{
     if(expresion.test(input.value)){
         document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
         document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-correcto');
         document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
-        camposComercio[campo] = true;
+        campos[campo] = true;
     }
     else{
         document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
         document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-correcto');
         document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
-        camposComercio[campo] = false;
+        campos[campo] = false;
     }
 }
 
-inputComercio.forEach((input) => {
-    input.addEventListener('keyup', validarFormularioComercio);
-    input.addEventListener('blur', validarFormularioComercio);
+inputs.forEach((input) => {
+    input.addEventListener('keyup', validarFormulario);
+    input.addEventListener('blur', validarFormulario);
 });
-/*
-function tomarDatosDomicilioComercio(){
-    const completo = "Dirección de comercio";
-    const calle_ = document.getElementById("calleComercio").value;
-    const numero_ = document.getElementById("numeroComercio").value;
-    const ciudad_ = document.getElementById("ciudadComercio").value;
-
-    completo = calle_ + " " + numero_ + " " + ciudad_;
-
-    document.write(completo);
-}*/
-//-------------------------
 
 
 // G-Maps ---------------------------------------------------------
@@ -247,7 +157,7 @@ google.maps.event.addDomListener(window, "load", function(){
                 lng : ubicacion.longitude
         }
 
-        //var texto = '<h4>Tu ubicación actual</h4>' + '<br><p>Aquí te encuentras actualmente</p>'
+        var texto = '<h4>Tu ubicación actual</h4>' + '<br><p>Aquí te encuentras actualmente</p>'
 
         const options = {
             center: myLatLng,
@@ -266,7 +176,7 @@ google.maps.event.addDomListener(window, "load", function(){
         })
 
         var informacion = new google.maps.InfoWindow({
-            //content: texto
+            content: texto
         })
 
         marcador.addListener('click', function(){
@@ -320,14 +230,26 @@ google.maps.event.addDomListener(window, "load", function(){
 
 // G-Maps ---------------------------------------------------------
 
+var flag = true 
+
 function ubicacionActual(){
     document.getElementById('datos_comercio').style.display = 'none';
     document.getElementById('map').style.display = 'block';
+    document.getElementById('calleComercio').value = 'calle';
+    document.getElementById('calleComercio').focus();
+    document.getElementById('numeroComercio').value = '1234';
+    document.getElementById('numeroComercio').focus();
+    document.getElementById('select').selectedIndex = 1;
+    flag = false;
 }
 
 function ubicacionEspecifica(){
     document.getElementById('datos_comercio').style.display = 'block';
     document.getElementById('map').style.display = 'none';
+    document.getElementById('calleComercio').value = '';
+    document.getElementById('numeroComercio').value = '';
+    document.getElementById('select').selectedIndex = 0;
+    flag = true;
 }
 
     
@@ -335,15 +257,13 @@ function ubicacionEspecifica(){
 function validar(){
     
     var txt_pedido = document.getElementById('txt_pedido').value;
-    //var txt_comercio = document.getElementById('txt_comercio').value;
     var fecha_pedido = document.getElementById('fecha_pedido').value;
-    //var txt_direccion_entrega = document.getElementById('txt_direccion_entrega').value;
     var select = document.getElementById('select').value;
     var select1 = document.getElementById('select1').value;
 
     if(txt_pedido == ''){
+        document.getElementById("txt_pedido").focus();
         document.getElementById("error_txt_pedido").style.display = 'block';
-
         document.getElementById("error_txt_comercio").style.display = 'none';
         document.getElementById("error_txt_entrega").style.display = 'none';
         document.getElementById("error_txt_ciudad").style.display = 'none';
@@ -352,48 +272,37 @@ function validar(){
         document.getElementById("error_txt_ciudad1").style.display = 'none';
         return
     }
-    /*
-    if(txt_comercio == ''){
-        document.getElementById("error_txt_comercio").style.display = 'block';
 
-        document.getElementById("error_txt_pedido").style.display = 'none';
-        document.getElementById("error_txt_entrega").style.display = 'none';
-        document.getElementById("error_txt_ciudad").style.display = 'none';
-        document.getElementById("error_pagoElegido").style.display = 'none';
-        document.getElementById("error_txt_recibirlo").style.display = 'none';
-        return
+    if(flag){
+        if(campos.calleComercio == false || campos.numeroComercio == false){
+            document.getElementById("calleComercio").focus();
+            document.getElementById("error_txt_entrega").style.display = 'none';
+            document.getElementById("error_txt_comercio").style.display = 'block';
+            document.getElementById("error_txt_pedido").style.display = 'none';
+            document.getElementById("error_txt_ciudad").style.display = 'none';
+            document.getElementById("error_pagoElegido").style.display = 'none';
+            document.getElementById("error_txt_recibirlo").style.display = 'none';
+            document.getElementById("error_txt_ciudad1").style.display = 'none';
+            return
+        }    
+    
+        if(select == ''){
+            document.getElementById("error_txt_ciudad").style.display = 'block';
+            document.getElementById("error_txt_ciudad1").style.display = 'none';
+            document.getElementById("error_txt_entrega").style.display = 'none';
+            document.getElementById("error_txt_comercio").style.display = 'none';
+            document.getElementById("error_txt_pedido").style.display = 'none';
+            document.getElementById("error_pagoElegido").style.display = 'none';
+            document.getElementById("error_txt_recibirlo").style.display = 'none';
+            return
+        }
     }
-    */
-/*
-    if(camposComercio.calleComercio == false || camposComercio.numeroComercio == false){
-        alert(camposComercio.calleComercio);
-        alert(camposComercio.numeroComercio);
-        document.getElementById("error_txt_entrega").style.display = 'none';
-        document.getElementById("error_txt_comercio").style.display = 'block';
-        document.getElementById("error_txt_pedido").style.display = 'none';
-        document.getElementById("error_txt_ciudad").style.display = 'none';
-        document.getElementById("error_pagoElegido").style.display = 'none';
-        document.getElementById("error_txt_recibirlo").style.display = 'none';
-        document.getElementById("error_txt_ciudad1").style.display = 'none';
-        return
-    }
-    */
-    if(select == ''){
-        document.getElementById("error_txt_ciudad").style.display = 'block';
 
-        document.getElementById("error_txt_ciudad1").style.display = 'none';
-        document.getElementById("error_txt_entrega").style.display = 'none';
-        document.getElementById("error_txt_comercio").style.display = 'none';
-        document.getElementById("error_txt_pedido").style.display = 'none';
-        document.getElementById("error_pagoElegido").style.display = 'none';
-        document.getElementById("error_txt_recibirlo").style.display = 'none';
-        return
-    }
 
     
     if(campos.calle == false || campos.numero == false){
+        document.getElementById("calle").focus();
         document.getElementById("error_txt_entrega").style.display = 'block';
-
         document.getElementById("error_txt_comercio").style.display = 'none';
         document.getElementById("error_txt_pedido").style.display = 'none';
         document.getElementById("error_txt_ciudad").style.display = 'none';
@@ -479,7 +388,6 @@ function validar(){
         document.getElementById("error_txt_ciudad1").style.display = 'none';
         return
     }
-    
 
     document.getElementById("error_txt_recibirlo").style.display = 'none';
     document.getElementById("error_txt_pedido").style.display = 'none';
@@ -487,8 +395,6 @@ function validar(){
     document.getElementById("error_txt_entrega").style.display = 'none';
     document.getElementById("error_txt_ciudad").style.display = 'none';
     document.getElementById("error_txt_ciudad1").style.display = 'none';
-
-
 
     alert("Pedido enviado con exito")
 

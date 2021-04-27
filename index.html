@@ -73,9 +73,6 @@
             <div id="bordes">
                 <div class="input-group">
                     <!-- Seleccionar ubicacion -->
-                    <!--<button type="button" class="btnMap" onclick="ubicacionEspecifica()">Ingresar ubicación específica</button>-->
-                    <!--<button type="button" class="btnMap" onclick="ubicacionActual()">Seleccionar ubicación actual</button>-->
-
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <div id="btn_ubiEsp" class="ng-pristine ng-untouched ng-valid ng-empty btn btn-secondary" onclick="ubicacionEspecifica()">Ubicación específica</div>
                         <div id="btn_ubiAct" class="ng-pristine ng-untouched ng-valid ng-empty btn btn-secondary" onclick="ubicacionActual()">Ubicación en el mapa</div>
@@ -86,49 +83,49 @@
 
                     <div class="input-group" id="datos_comercio">
 
-                    <div class="formulario__grupo" id="grupo__calle_comercio">
-                        <div class="formulario__grupo-input">
-                                <i class="fas fa-road" id="iconss"></i>
-                            <input type="text" class="form_input" name="calleComercio" id="calleComercio" placeholder="Calle">
-                        </div>
-                        <p class="formulario__input-error" id="errorCalleC">Debe ingresar entre 3 y 30 letras y/o números</p>
-                    </div>                   
+                        <div class="formulario__grupo" id="grupo__calleComercio">
+                            <div class="formulario__grupo-input">
+                                    <i class="fas fa-road" id="iconss"></i>
+                                <input type="text" class="formulario__input" name="calleComercio" id="calleComercio" placeholder="Calle">
+                            </div>
+                            <p class="formulario__input-error" id="errorCalleC">Debe ingresar entre 3 y 30 letras y/o números</p>
+                        </div>                   
 
-                    <div class="formulario__grupo" id="grupo__numero_comercio">
-                        <div class="formulario__grupo-input">
-                            <span class="input-group-addon">
-                                <i class="fas fa-map-pin" id="icons2"></i>
-                            </span>
-    
-                            <input type="number" class="form_input" name="numeroComercio" id="numeroComercio" placeholder="Número">
+                        <div class="formulario__grupo" id="grupo__numeroComercio">
+                            <div class="formulario__grupo-input">
+                                <span class="input-group-addon">
+                                    <i class="fas fa-map-pin" id="icons2"></i>
+                                </span>
+                            
+                                <input type="number" class="formulario__input" name="numeroComercio" id="numeroComercio" placeholder="Número">
+                            </div>
+                            <p class="formulario__input-error" id="errorNumeroC">Solo se permiten números de 1 a 5 dígitos </p>
                         </div>
-                        <p class="formulario__input-error" id="errorNumeroC">Solo se permiten números de 1 a 5 dígitos </p>
-                    </div>
-                    
-                    <div class="form-group" id="espacido">
-                        <i class="fas fa-globe" id="globe"></i>
-                            <select   id="select" class="container">
-                                <option  value="" hidden  >Seleccionar Ciudad...</option>
-                                <option> Cordoba</option>
-                                <option> Rio Ceballos</option>
-                                <option> Carlos Paz</option>
-                                <option> Cosquín</option>
-                                <option> Oncativo</option>
-                                <option> Villa Allende</option>
-                              </select>
-                        <label id="error_txt_ciudad">Debe seleccionar la ciudad</label>
-                    </div>
 
-                    <div class="formulario__grupo" id="grupo__referencia_comercio">
-                        <div class="formulario__grupo-input">
-                            <span class="input-group-addon">
-                                <i class="fas fa-clipboard" id="icons2"></i>
-                            </span>
-                            <input type="text" class="form_input" name="referenciaComercio" id="referenciaComercio" placeholder="Referencia (Opcional)">
+                        <div class="form-group" id="espacido">
+                            <i class="fas fa-globe" id="globe"></i>
+                                <select   id="select" class="container">
+                                    <option  value="" hidden  >Seleccionar Ciudad...</option>
+                                    <option> Cordoba</option>
+                                    <option> Rio Ceballos</option>
+                                    <option> Carlos Paz</option>
+                                    <option> Cosquín</option>
+                                    <option> Oncativo</option>
+                                    <option> Villa Allende</option>
+                                  </select>
+                            <label id="error_txt_ciudad">Debe seleccionar la ciudad</label>
                         </div>
+
+                        <div class="formulario__grupo" id="grupo__referencia_comercio">
+                            <div class="formulario__grupo-input">
+                                <span class="input-group-addon">
+                                    <i class="fas fa-clipboard" id="icons2"></i>
+                                </span>
+                                <input type="text" class="formulario__input" name="referenciaComercio" id="referenciaComercio" placeholder="Referencia (Opcional)">
+                            </div>
+                        </div>
+
                     </div>
-                    
-                </div>
                 </div>
 
                 <label id="error_txt_comercio">Debe ingresar el comercio</label>
